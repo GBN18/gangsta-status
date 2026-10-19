@@ -1,0 +1,262 @@
+{
+  "document": {
+    "title": "Gangsta — development status board",
+    "purpose": "A read-only description of how Gangsta is built, what it does, and what is planned. Written for another AI assistant to read before suggesting changes, so that advice fits the system instead of contradicting it.",
+    "howToUseThis": [
+      "Read `constraints` first. Those are decisions already made and paid for. A suggestion that breaks one of them is wrong here even if it is good advice in general, and the `because` line says what it cost to learn.",
+      "`architecture` says which machine owns what. Most bad suggestions come from assuming one machine can write something another one owns.",
+      "`knownIssues` is honest, not marketing. If something is broken or unverified it is listed.",
+      "`notCovered` says what nobody has audited. Treat those areas as unknown rather than working."
+    ],
+    "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
+    "containsNoPersonalData": true,
+    "docVersion": "2026-10-19.4"
+  },
+  "overview": {
+    "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
+    "shape": "Three programs sharing one state, with a strict rule about who may write what.",
+    "notAProduct": "There are no other users, no accounts and no multi-tenancy. Anything that assumes a user table, sign-up, or per-tenant isolation does not apply."
+  },
+  "architecture": {
+    "machines": [
+      {
+        "name": "PC",
+        "stack": "Electron 32 shell + Vue 3 / TypeScript front end + a Go backend process",
+        "role": "The authority. It owns every file of state and is the only machine that writes the canonical copy.",
+        "detail": "The Go process listens on 127.0.0.1 only. The renderer talks to it over a local HTTP RPC surface of about 442 methods. Nothing from the internet can reach it."
+      },
+      {
+        "name": "Satellite",
+        "stack": "The SAME Go binary, built from the same source, running on Railway with satelliteMode = true",
+        "role": "Answers the phone while the desktop is closed, which is most of the day.",
+        "detail": "It holds a synced copy of the state and may change it, but its copy is not the truth: the PC overwrites it. Every change it makes is also queued as an operation for the PC to replay."
+      },
+      {
+        "name": "Phone",
+        "stack": "Native Android (Java), package name MainFrame, in a separate repository",
+        "role": "A full client, not a viewer. It can create and change things offline.",
+        "detail": "It talks only to the satellite, over one base URL, every route under /phone/v1 (about 51 of them), authenticated with one shared credential sent as a header."
+      }
+    ],
+    "howStateMoves": {
+      "ownership": "The PC owns the files. The satellite owns nothing permanently.",
+      "pcToSatellite": "The PC pushes changed files by hash difference. A full push at most every 5 minutes; the relay folders every heartbeat.",
+      "satelliteToPc": "The satellite never gets to keep a change. It applies it to its own copy so the phone sees it at once, and queues an operation describing it. The PC pulls those operations and replays them through the same functions the desktop uses, then pushes the result back over the satellite's copy.",
+      "cadence": {
+        "heartbeat": "20 seconds",
+        "fullStatePush": "5 minutes",
+        "pcConsideredAwakeFor": "3 minutes after its last heartbeat"
+      },
+      "whyThisOrder": "On every tick the PC folds queued operations BEFORE it pushes state. That is what makes the satellite's optimistic write safe: the PC's version of the same change is always in place before its push overwrites what the satellite wrote."
+    },
+    "storage": {
+      "format": "Plain JSON files in the OS application-data directory. No database, no ORM, no migrations framework.",
+      "syncedRoots": [
+        "discipline",
+        "skill-tree",
+        "chats",
+        "calendar",
+        "phone",
+        "calibration",
+        "shopping",
+        "notes",
+        "icons",
+        "activities",
+        "daily",
+        "workout",
+        "recipes",
+        "recommend",
+        "brain",
+        "website-blocks.json",
+        "app-categories.json",
+        "domain-categories.json",
+        "content-classifications.json",
+        "phone-app-categories.json",
+        "phone-app-groups.json"
+      ],
+      "notSynced": "Settings, which hold credentials, are never sent over the sync channel. Practice media is kept local on purpose."
+    },
+    "dependencies": {
+      "goThirdParty": "None. The Go backend has an empty require block and uses only the standard library.",
+      "whyItMatters": "Suggesting a Go library is a bigger change than it looks. It would be the first one."
+    },
+    "size": {
+      "goSource": 68814,
+      "goTests": 25730,
+      "vue": 42031,
+      "note": "Line counts, not a quality claim."
+    }
+  },
+  "constraints": [
+    {
+      "rule": "The PC owns the files. The satellite may apply a change locally, but must also queue an operation for the PC to replay.",
+      "because": "The PC overwrites the satellite's copy whenever the two differ. A change written only on the satellite is reverted within five minutes, silently."
+    },
+    {
+      "rule": "Any operation that CREATES something needs an exactly-once ledger keyed by an operation id.",
+      "because": "A batch of operations is re-delivered whole when an acknowledgement does not land. Idempotent operations survive that; a create makes a second thing. This has been fixed four separate times after the fact."
+    },
+    {
+      "rule": "Never mint an id from the clock.",
+      "because": "The desktop runs on Windows, whose timer ticks about every 15ms. time.Now().UnixNano() returns the same value for consecutive calls — measured, it collided on the SECOND call, roughly 3000 duplicates in 3000 tries. Three id generators had this bug. Use crypto/rand."
+    },
+    {
+      "rule": "Tasks, daily notes and journal entries live in the JSON store, not in files on disk. Most of them have no file at all.",
+      "because": "The app used to mirror them into a notes vault and no longer does. Any code that opens a task's file to find out what it says works for old records and fails for new ones — which looks random. This has been fixed five separate times."
+    },
+    {
+      "rule": "Decide retry-or-discard from the HTTP status code, never from the text of an error message.",
+      "because": "The phone's outboxes used to search the error prose for '404'. A 404 is rendered as a sentence with no digits in it, so the one status it most needed to settle was the one it could never see, and the queue jammed behind it permanently."
+    },
+    {
+      "rule": "Drag and drop uses pointer events. Never the HTML5 drag-and-drop API.",
+      "because": "Whether a drag begins is the platform's decision there. When it decides against, there is no event, no error and nothing the page can do — the cursor just flickers and nothing moves."
+    },
+    {
+      "rule": "The front end has no global box-sizing: border-box.",
+      "because": "max-width caps the content box and padding adds on top of it. Layouts that assume the usual reset come out wider than expected."
+    },
+    {
+      "rule": "An assistant reply that claims an action happened must be true.",
+      "because": "This app is a commitment device. Saying a block was lifted, a task saved or a change synced when it was not is the failure that makes the whole thing untrustworthy. Several past bugs were exactly this shape: the call reported success and did nothing."
+    },
+    {
+      "rule": "Deleting something permanently and taking it off a list are different acts and must not share a control.",
+      "because": "Removing a shopping item from this trip keeps the item. Removing a target from a standing rule keeps the rule. A single 'remove' that guesses wrong has already destroyed a rule covering five other sites."
+    },
+    {
+      "rule": "The phone is a client that works offline. Every change goes through an outbox, is written to disk before anything is drawn, and is replayed in order.",
+      "because": "It is used in places with one bar of signal. A design that needs a round trip to show a change is wrong for this app."
+    },
+    {
+      "rule": "Tests must be sabotaged before they are trusted.",
+      "because": "Several tests here passed against the bug they claimed to cover. One matched any error containing 'not', which also matches 'cannot'."
+    }
+  ],
+  "features": {
+    "implemented": [
+      "Chat with an assistant persona that can call tools: scheduling, blocking, memory, tasks, quests",
+      "Calendar with a day, week and planning view; tasks and time blocks share one grid",
+      "Day planner that proposes what could fit in each stretch of a day, from a list of activities, open tasks and quests",
+      "Tasks and deadlines with quick-entry commands, priorities, recurrence, parking and archive",
+      "Skill tree with weekly quests, a work-point economy and per-skill coach chats",
+      "Self-imposed website and phone-app blocking with standing rules, schedules and negotiated passes",
+      "Shopping cart with user-defined columns, computed formulas, type lines and reference lists",
+      "Habit and daily tracking, journal, long-term and episodic memory",
+      "Activity tracking across desktop and phone, unified into one timeline",
+      "Alarm with a spoken wake-up pre-loaded to the phone so it rings with the desktop off",
+      "Workouts, recipes, practice boards, a pomodoro timer and an on-screen companion avatar"
+    ],
+    "phoneCanDoAlone": [
+      "Read and change the whole shopping cart",
+      "Plan a day, place and move blocks, confirm the day",
+      "Create and edit tasks and quests",
+      "Log workouts and recipes, tick habits, write journal entries",
+      "Hold a full assistant conversation, including per-skill coaching"
+    ]
+  },
+  "knownIssues": [
+    {
+      "issue": "A read-back guard in the calendar's store-only write path is not covered by any test.",
+      "impact": "It is defence against a store that writes and then cannot read back. Nothing can reach it while the store's own refusal stands, so it is unverified rather than known-good.",
+      "status": "documented in place"
+    },
+    {
+      "issue": "Nothing records how long an individual task took, except when the user answers the \"how long did that take?\" buttons on a completion.",
+      "impact": "Calibration's estimate-vs-actual stat now has one source instead of two. The old second source read each task's own file, which no longer exists, and the import that moved tasks into the store flattened their nested time entries down to the last session, so it could not be re-pointed without changing what the number means.",
+      "status": "known"
+    }
+  ],
+  "notCovered": {
+    "note": "Areas no review pass has examined. Treat them as unknown rather than working.",
+    "areas": [
+      "The Vue front end outside the planner and calendar",
+      "The chat and model-call pipeline",
+      "The blocking rules engine",
+      "The alarm and its spoken missions",
+      "Workouts and recipes",
+      "Concurrency across the package-level mutexes in the Go backend"
+    ]
+  },
+  "inDevelopment": [
+    {
+      "item": "This status board",
+      "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
+    }
+  ],
+  "roadmap": [
+    {
+      "item": "Review the areas listed in notCovered",
+      "why": "Two review passes have found real bugs in every class they examined. The unexamined areas are not evidence of health."
+    },
+    {
+      "item": "A live channel from the always-on process to the desktop",
+      "why": "Today the desktop polls every 20 seconds, so an action the cloud cannot perform itself waits that long. A held-open connection would make it immediate. Not started, and not urgent."
+    }
+  ],
+  "adviceForAssistants": {
+    "goodSuggestions": [
+      "Changes that keep one machine as the owner of each piece of state",
+      "Changes that fail loudly rather than quietly",
+      "Changes that can be tested, and whose tests fail when the change is reverted"
+    ],
+    "suggestionsThatWillNotFit": [
+      "Adding a database, an ORM or a migrations framework — the state is plain JSON files on purpose",
+      "Adding a Go dependency — there are currently none",
+      "Multi-user features, accounts, sign-up or sharing — there is one user and no server-side identity",
+      "Anything that asks the cloud process to be the permanent owner of state",
+      "Anything that makes the phone depend on a round trip to show a change",
+      "Replacing the local RPC with a public API — the desktop backend binds to loopback deliberately"
+    ]
+  },
+  "latestUpdates": [
+    {
+      "item": "Presses that did nothing, swept across the whole phone app",
+      "detail": "The day planner's two faults turned out not to be the planner's, so both shapes were searched for everywhere. A save that checks a field is not empty and returns runs AFTER its sheet has closed, so the form and everything typed into it is gone with no message: two more of those, a new cart column and a self-written quest, now keep the form up and name the field they want. And a screen that cannot account for itself: the calendar left the cache standing when a load was refused, which is right, but said nothing - so a day with no blocks read exactly like a day that is genuinely clear, and the blocks are the only part of that grid the hub owns. Every other screen already had its own line for this. Three questions are now asked of every screen by test: reading it writes nothing, it asks the hub once, and a refusal is accounted for in words. Two of those tests were worthless until a sabotage pass showed it - all ten tabs share one layout, and a check for what is on screen that does not look at the ancestors' visibility reads every word in the app."
+    },
+    {
+      "item": "The phone's screens are tested on the PC now",
+      "detail": "Driving the real phone was the slow part of every phone change: three adb round trips to read the screen as text, a fresh read after each press because the rows move, and a rebuild and install per fix. The phone app now runs its screens inside ordinary JVM tests, which build the real views, press them by their words and read what came back. Fifteen interactions over the day planner run in about half a minute. Two pieces made it possible: one replaceable seam at the bottom of the hub client, so a test answers for the server instead of the network - without it a screen built off the phone draws nothing but \"can't reach the hub\", and a test could write to the real calendar - and a fixture day, so no test needs real data. Every fault fixed in the planner was put back one at a time and each one failed its test, which is the only evidence that the suite is worth its runtime. Nothing in the app's own behaviour changed: the seam defaults to the real network and all hundred-odd call sites kept their names and arguments."
+    },
+    {
+      "item": "The phone's day planner says what it did, where you are looking",
+      "detail": "Every confirmation that screen produced was appended to the BOTTOM of its page, below a card that draws a row for each open task, so the answer to a press near the top was rendered off the bottom of the scroll and nothing visible changed. It is a strip over the window now, the same shape as the question that asks how long a task took, and it dismisses itself instead of describing the previous press forever. Eight more presses on that screen did nothing and said nothing: ADD on a task row returned when the band on screen had no free stretch although the button is drawn in every band, and now offers the whole day's openings; four save buttons checked a title was not empty and returned, which the sheet runs AFTER closing, so the form and everything typed into it went with no message; confirming a move with neither dial touched; opening the task behind a placed block, which looked for it in the list a scheduled task has by definition left; tapping an activity row, which has no record to open; and a create that failed without a message. Desktop behaviour is unchanged."
+    },
+    {
+      "item": "The notes vault is gone from the code",
+      "detail": "Searching and opening a notes vault was removed, along with the one-way mirror that fed the search and the invented vault path the always-on process used to satisfy checks that never read it. Four buttons that opened a day's or an entry's file were removed with the refusals behind them, since those records have no file."
+    },
+    {
+      "item": "Guards that refused without a vault path were removed",
+      "detail": "Memory lives in the brain store, and two of its readers returned nothing at all when no vault path was set — so prompts built on a machine without one went out carrying no memory of the user. That was dormant until the always-on process lost its invented path in this same change, which made it live. Four more of the same mistake were fixed: the journal nudge, the journal evidence card, filing a feed answer to memory, and booking a block from a feed card."
+    },
+    {
+      "item": "Finishing, reopening and deleting a task no longer need a vault path",
+      "detail": "All three resolved the task's file name before doing anything and returned the error when there was no vault path to build one from — then wrote only to the store, which never needed the name. On the always-on process, which has no vault path at all, the three most ordinary things you can do to a task answered \"vault path empty\"."
+    },
+    {
+      "item": "The file relay and the one-time importers are gone",
+      "detail": "The relay carried one folder of files between the phone and the desktop; those files have travelled in the store for two weeks, and its read side had already stopped being refilled. The four migrations that moved tasks, daily notes, the journal, the workout library and the shopping list out of the old notes app have all run — their own flags say so — so the code that ran them went too, along with the one-way export that wrote everything back out."
+    },
+    {
+      "item": "An exercise typed as a hold is logged in seconds again",
+      "detail": "The rule that makes a held exercise count seconds instead of reps lived only in the import. That made it true of the three exercises that came across and false of every one made since — typing the hold type on a new exercise left it logging reps. It now applies wherever an exercise is saved, which includes the phone."
+    },
+    {
+      "item": "The notes app is out of the code",
+      "detail": "The folder path setting is gone, and with it the layer that opened a task's file: the task writers took a file name and the file's whole new text, built forty lines of frontmatter between them, and dropped both — the one write mode left has written only the store for a month. The file relay, the four one-time imports and the one-way export went earlier in the same sweep. The tasks folder NAME stays, because it still decides which records count as tasks and which are archived."
+    },
+    {
+      "item": "Turning a task into a quest works on tasks made since the migration",
+      "detail": "Drafting a quest from a task read the task's file and refused when there was none, and adding one stamped the task as a quest inside two nested file checks so it silently did nothing. Measured on the real store: 12 of the 57 live tasks have no file — every one made since the migration, which is all the recent ones. For those twelve the feature did not work at all."
+    },
+    {
+      "item": "Deleting a task no longer claims it can be recovered",
+      "detail": "The phone's confirmation sheet said the task goes to the desktop's Recycle Bin and can be got back. The bin only ever took the task's file, and the writer skipped that in the one write mode left — so nothing went to any bin, and neither app has a restore. A delete makes a tombstone: the record stays, marked gone, which is what stops a device that was offline from re-creating it. The sheet says there is no undo now, and the dead platform code for the bin is gone."
+    },
+    {
+      "item": "Four switches that controlled nothing are off the Settings page",
+      "detail": "Enable and auto-create, for both the day and the journal, plus the filename formats behind them. Every one was saved, read back on the next load, and looked at by no other line in either app — they are from when a day was a file, so 'enable the connection' meant connect to a folder and 'auto-create' meant write today's file. The structs ended up empty and went whole, with the three deprecated fields that existed only to migrate into them."
+    }
+  ]
+}
