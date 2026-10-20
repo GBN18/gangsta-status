@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-20.1"
+    "docVersion": "2026-10-20.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -170,7 +170,7 @@
   "notCovered": {
     "note": "Areas no review pass has examined. Treat them as unknown rather than working.",
     "areas": [
-      "The Vue front end outside the planner and calendar",
+      "The Vue front end outside the planner and calendar - there is a test runner for it now (`npm test`), but only the calendar header and the day-turn are covered",
       "The chat and model-call pipeline",
       "The blocking rules engine",
       "The alarm and its spoken missions",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The desktop UI has tests",
+      "detail": "`npm test` runs vitest against src. There was nothing before: every change to the Vue side was checked by opening the app and looking at it, which is slow, needs the Go backend running, and cannot reach the faults that only appear after the window has been open for a day. The one that prompted this could not be reproduced on purpose, only waited for, and it was reported twice before it was fixed. The pattern is the same one the phone app uses: keep the rule OUT of the component, in a small function that takes its inputs and returns an answer, and test that; a component test needs the Go bridge mocked and every child stubbed, a rule test needs nothing. Where a component test is still the only honest one - whether a control is actually on a view - the page is mounted with the bridge mocked, and that mock THROWS on every write, so a later change that makes a page write while merely loading fails in the suite instead of on the owner's calendar. Every rule was sabotaged to check the test fails without it, which is also how two of the tests were found to be worth nothing as first written."
+    },
     {
       "item": "The desktop Plan can change its day, and no longer opens on yesterday",
       "detail": "The arrows, Today and the date box lived in the Day view's toolbar. The Plan view has no toolbar on purpose - it is a tall screen and a toolbar costs it a row - so it had no date control whatsoever. They are in the page header now, beside the title, shared by all three views and stepping whatever the open view is about: a week on Week, a day on the other two. Separately, the shown date was read from today once at mount and never again, so a window left open overnight opened on the previous day. It follows the day now, but only when you were on today - being dragged off a date you chose yourself at midnight would be worse than the fault being fixed. A related one in the same family: a computed asking whether the day on screen is today called a plain function rather than reading the ticking value, and a computed does not recompute for a function call, so the now-marker kept drawing itself across a day that had ended. The desktop UI has no test runner, so these were checked by driving the real page against the running backend, with the clock faked for the two midnight rules and both of them sabotaged to confirm the checks bite."
