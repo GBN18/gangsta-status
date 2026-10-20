@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-19.5"
+    "docVersion": "2026-10-20.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The desktop Plan can change its day, and no longer opens on yesterday",
+      "detail": "The arrows, Today and the date box lived in the Day view's toolbar. The Plan view has no toolbar on purpose - it is a tall screen and a toolbar costs it a row - so it had no date control whatsoever. They are in the page header now, beside the title, shared by all three views and stepping whatever the open view is about: a week on Week, a day on the other two. Separately, the shown date was read from today once at mount and never again, so a window left open overnight opened on the previous day. It follows the day now, but only when you were on today - being dragged off a date you chose yourself at midnight would be worse than the fault being fixed. A related one in the same family: a computed asking whether the day on screen is today called a plain function rather than reading the ticking value, and a computed does not recompute for a function call, so the now-marker kept drawing itself across a day that had ended. The desktop UI has no test runner, so these were checked by driving the real page against the running backend, with the clock faked for the two midnight rules and both of them sabotaged to confirm the checks bite."
+    },
     {
       "item": "This board has a second public copy, on GitHub",
       "detail": "The satellite still serves it at /gangsta/status and /gangsta/status.json, and that is the live one. There is now also a copy in a public repository, GBN18/gangsta-status, for when a stable link is wanted rather than a running server: raw.githubusercontent.com/GBN18/gangsta-status/main/status.json. GitHub visibility is per repository, so one file of a private repo cannot be public on its own - hence a second repo that holds this file and nothing else. scripts/publish_status.py copies it there and refuses rather than publishes if the board stops declaring that it carries no personal data, if it has no docVersion, if it does not parse, or if anything but that one file would be committed. It pushes from the owner's PC with the credential already stored there, so nothing new had to be created or stored for it. Run it whenever this file changes; a copy that is only committed locally is not published, and the script now checks the remote rather than the file on disk to decide."
