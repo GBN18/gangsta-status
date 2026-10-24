@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-24.3"
+    "docVersion": "2026-10-25.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "About one saved video in five refused to play, and now plays",
+      "detail": "The gallery gets a saved video by reading the file link out of the sharing page a site publishes for embedding. For most posts that link is there. For some it is not: the site decides, per post, to send a 'watch this in our app' card instead and leaves the file out. Measured over twenty saved posts, four were refused this way, and the card and the missing link agreed nineteen times out of nineteen -- so the reason is now read from the page rather than guessed. Two routes to the file were rejected before the one that was built. Sending a different browser identity until the site answers differently is an attempt to trick a check, it breaks whenever they change it, and it does not belong in an app he relies on. Signing in as himself was rejected by him, and rightly: it risks the account for a convenience. What works instead needs neither. The post's own page plays for any visitor, and it carries the standard streaming description that says how -- picture and sound as separate streams, five sizes. So a hidden window with an in-memory cookie jar, signed out and discarded after each use, loads that page and reads the description out of it, and the existing player plays it the same way it already plays the other video site. Measured end to end: all four refused posts now play at full size with sound. The window is opened ONLY for a post that refused -- the rest answer in a tenth of the time, and making every video slower to rescue a few would be a poor trade. When even that fails the player says so in words that do not blame the app, and does not offer a retry button for a decision no retry can change."
+    },
     {
       "item": "The most-important-task section existed on the phone but not on the desktop",
       "detail": "A task can be starred as the one thing the day is really about. The phone has drawn those in their own section, under what is in progress, for a long time; the desktop only put a star on the row and left it buried among everything else that was open. The desktop list now has the same section in the same place, so the two screens describe the same day. Deciding which section a task belongs to moved out of the page and into a tested rule, because the flags overlap: a starred task that also has a deadline, repeats weekly and is already in progress is an ordinary Tuesday, not a strange case, and a chain of conditions written inside a template is how one task ends up drawn twice and ticked twice. The order of the checks is the rule and it is written once. Two of those orderings are judgement calls rather than mechanics: something already started outranks something merely starred, because a star is a plan and a started task is a fact; and a finished star goes to the done pile like anything else, since a section meant to say what is left should not fill up with what is over. Eleven tests, five sabotages, all caught."
