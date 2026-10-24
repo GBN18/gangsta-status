@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-25.2"
+    "docVersion": "2026-10-25.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A video can be opened in its own window, and saved to disk",
+      "detail": "Right-clicking a video in the gallery now offers a window of its own, so something can play while the rest of the app is used -- talking to the assistant, mostly, which is what it was asked for. An ORDINARY window: movable, resizable, in the task bar, managed by the system like any other, and as many at once as wanted. Each is its own renderer, so what it should play travels in its address, which makes a caption with a hash, an ampersand or Hebrew in it a real risk rather than a theoretical one; a packaged build also carries that query after the hash rather than before it, which is a difference that only shows up once built. Both are tested. Saving is two jobs behind one button. Most saved posts are a single file and saving one is a download. Everything from the video site, and the posts whose file is withheld, arrive as picture and sound in SEPARATE streams -- so saving just the picture writes a silent film that says nothing about being silent. They are joined with ffmpeg, copied rather than re-encoded, taking about a second and losing nothing. Using the one already on the machine rather than adding seventy megabytes to the app was a deliberate trade, and its cost is that it can be absent -- so that is said in words, with the command to install it, instead of quietly saving the silent version. Worth recording: the first real save HUNG with an empty folder and no error, because a manifest is XML and every ampersand in its URLs is written as an entity. The player unescapes them; the downloader did not. That is the third time that same trap has been walked into in this project, so it is now a named function with a test rather than a resolution to be careful."
+    },
     {
       "item": "A video reaching its last frame was treated as a decision",
       "detail": "When a saved video finished, two things fired at once: the player shut itself and the video left the gallery, marked as seen. Neither was asked for. A six-second clip reaches its end long before anyone has decided anything about it, so the file running out is not the same as being done with it -- it may be worth watching again, or sitting on the last frame. Only the two deliberate actions settle a video now, and both are one click and undoable. The event the player sent for this is gone as well as its listener: an event nobody listens to is a trap for whoever wires something to it next. Worth recording because the first test written for this was worthless and said nothing about it: the stand-in for the player held a video element but did not pass the end on, and a browser does not bubble that event, so putting the old behaviour back left all three tests green. A second one was weak for a different reason -- the page removes a tile before the write and puts it back when the write fails, so counting tiles came out right either way. It asks whether the write was MADE now. Both faults were found by breaking the code on purpose and watching the tests not notice."
