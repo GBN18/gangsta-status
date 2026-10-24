@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-21.1"
+    "docVersion": "2026-10-24.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A phone block guarded by two rules only ever carried one of them",
+      "detail": "The reconciler that pushes standing rules to the phone kept one row per APP, so a second rule naming the same app overwrote the first. The phone was told only about whichever rule came last, and satisfying THAT one opened the app while the desktop — which evaluates every rule separately — went on blocking it. The same mistake from the other side left orphans: the map of existing rows was keyed by app too, so a second row for one app never matched and was never deleted. A row is identified by the rule and the app together now, and carries the rule's id; a row written before that field existed matches nothing and is replaced on the next tick, so it heals in one minute. Worth knowing for anyone touching this: the phone side was already correct — it drops satisfied rules and blocks while any unsatisfied rule matches — so no app change was needed. The first sabotage pass caught only one of the three faults, because reverting either half of the key left the row COUNT right while rewriting every row on every tick; the test that catches it asks whether a settled row is still the same row."
+    },
     {
       "item": "Watch: a gallery of things worth watching, inside Brain",
       "detail": "Brain has two halves now. The feed hands you one card and argues with it; Watch is a wall of boxes you browse. Three sources, none of them anyone else's idea of what you should see: channels the owner marked productive on a large video site, read over that site's public RSS feeds so there is no API key, no account and no quota; his own save-for-later queue there, which the browser extension already read for the recommender; and his saved collections on a photo-sharing app, which the extension now reads the same way because that app publishes no API for saved posts at all - not even for your own account. A watched item leaves the gallery, and the mark is kept per item rather than per source, because the same thing arrives from two sources and seeing it once should settle both. A channel is added by link, handle or id; only the handle costs a request, and a paste pointing somewhere else is refused BEFORE any request goes out, because a typo must not become a request to a third party."
