@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-24.1"
+    "docVersion": "2026-10-24.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Classifying an app did not change the hours already recorded under it",
+      "detail": "A tracked stretch of time has a category, and that category was decided when the stretch was RECORDED and written onto the row. Nothing read it again, so a rule written in the evening only affected what happened next. On the desktop that is invisible: an app still open starts a new stretch within the minute and picks the rule up, so the row appears to change. A phone app used two hours ago never gets another stretch, so it kept the category it was born with for good -- which is why this was reported as the setting not saving at all, when the rule had in fact been stored and was simply never consulted again. Judging a day is something done at the end of it, so rule-decided rows are now resolved against the rules as they stand on the way out, in both the daily summary and the event list -- they share a screen and must not disagree about the same row. Three kinds of row are deliberately left alone: one a model judged individually on what it was, because flattening it back under a blanket rule throws away the judgement that cost the call; time away from the machine, which no rule about an app makes productive; and any row no rule has an opinion about, since an empty answer means no match and treating it as a verdict would blank every unmatched row. The resolvers are passed in rather than read inside, so the read path uses exactly the ones the recorder used."
+    },
     {
       "item": "A phone block guarded by two rules only ever carried one of them",
       "detail": "The reconciler that pushes standing rules to the phone kept one row per APP, so a second rule naming the same app overwrote the first. The phone was told only about whichever rule came last, and satisfying THAT one opened the app while the desktop — which evaluates every rule separately — went on blocking it. The same mistake from the other side left orphans: the map of existing rows was keyed by app too, so a second row for one app never matched and was never deleted. A row is identified by the rule and the app together now, and carries the rule's id; a row written before that field existed matches nothing and is replaced on the next tick, so it heals in one minute. Worth knowing for anyone touching this: the phone side was already correct — it drops satisfied rules and blocks while any unsatisfied rule matches — so no app change was needed. The first sabotage pass caught only one of the three faults, because reverting either half of the key left the row COUNT right while rewriting every row on every tick; the test that catches it asks whether a settled row is still the same row."
