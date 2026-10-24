@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-25.5"
+    "docVersion": "2026-10-25.6"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The video gallery collapsed into bare lines when it was full",
+      "detail": "Fifteen videos drew perfectly. Six hundred drew as a page of horizontal hairlines, every tile two pixels tall. The size of the list was the whole difference, which made it look like a limit and was really a loop. A tile stretched to the height of the row it sat in, and the row sized itself from the tile -- circular, and the only thing breaking the circle was the PICTURE giving the tile a real height. Images below the fold are loaded lazily, so they had no height yet, so the row came out as nothing, so every tile shrank to a line -- and once every tile is a line, the whole list is on screen and nothing is below the fold any more, yet nothing has a size to load into. With fifteen items all the pictures were visible from the start and the loop never ran. The ratio that is supposed to hold a tile open before its picture arrives was being squashed by the same stretch. Two lines fix it: tiles size from their own content rather than from the row, and the box holding the ratio is not allowed to shrink. Found by measuring the running window rather than reading the stylesheet -- the numbers said the tile was two pixels and the thumbnail one, which pointed straight at the squashed ratio; then five candidate fixes were applied to the live page and measured before one was written down. Verified afterwards on the real list in all four filters: no collapsed tiles out of six hundred and twelve. Layout cannot be covered by the test suite here, so the test reads the stylesheet and asks whether both rules are still written; it is weaker than it looks and says so."
+    },
     {
       "item": "The saved-video gallery cropped every clip to the wrong shape",
       "detail": "Short saved clips are filmed tall -- nine by sixteen -- and the gallery drew every one of them in a wide landscape box, which threw away half of each picture before he could recognise it. Videos from the other source are genuinely wide, so there is no single right box. The grid now follows the MEDIA: filter to the saved folder, where every item is tall, and the grid turns vertical and narrow, the tile becomes all picture and the title moves onto a dark band across the bottom of it. On a mixed list it stays wide, because a tall box would letterbox the wide videos into stamps to flatter the tall ones. That rule is about the data rather than a preference, so it lives in a tested function instead of the page. The tile itself was restyled to the app's own guide, which it had drifted from: a panel rather than a bare thumbnail, a perforated film edge carrying the colour that says where the video came from, and a stencilled position number -- useful when the pile is three hundred deep. The badge that said where a clip came from had been drawn in a colour belonging to a different feature entirely, the one thing on the page outside the palette; it is back inside it. Worth recording: the test written to keep that colour out was worthless and said so only under sabotage -- it asked the rendered markup, and a scoped stylesheet never appears there, so it passed with the wrong colour put back. It reads the file now. Six sabotages, all caught after that fix."
