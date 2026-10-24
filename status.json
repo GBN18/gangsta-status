@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-25.3"
+    "docVersion": "2026-10-25.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Download failed with “An object could not be cloned”",
+      "detail": "Pressing download did nothing but print that sentence -- no object named, no reason given, and the video playing in front of him the whole time. The answer describing the video was held in a reactive reference, which wraps what it holds in a proxy so the interface can watch it for changes. Everything on screen works through that proxy quite happily. But sending anything to the part of the app that writes files copies it with the structured clone algorithm, and that algorithm cannot copy a proxy; it refuses with exactly that sentence and nothing more. The payload is now built field by field instead of the answer being handed over whole, which fixes the copy and is better anyway: three values cross the boundary rather than everything the resolver happened to return, since a caption and a thumbnail have no business travelling to save a file. A function rather than a copy at the call site, because the rule is 'only plain, only these' -- a shallow copy still carries a nested proxy, and still carries a function, which cannot be copied either. The tests use the real reference type and the real clone algorithm, so one of them reproduces the failure rather than describing it; if that one ever stops failing, the others have stopped proving anything. Three sabotages, including the shallow copy, all caught."
+    },
     {
       "item": "A video can be opened in its own window, and saved to disk",
       "detail": "Right-clicking a video in the gallery now offers a window of its own, so something can play while the rest of the app is used -- talking to the assistant, mostly, which is what it was asked for. An ORDINARY window: movable, resizable, in the task bar, managed by the system like any other, and as many at once as wanted. Each is its own renderer, so what it should play travels in its address, which makes a caption with a hash, an ampersand or Hebrew in it a real risk rather than a theoretical one; a packaged build also carries that query after the hash rather than before it, which is a difference that only shows up once built. Both are tested. Saving is two jobs behind one button. Most saved posts are a single file and saving one is a download. Everything from the video site, and the posts whose file is withheld, arrive as picture and sound in SEPARATE streams -- so saving just the picture writes a silent film that says nothing about being silent. They are joined with ffmpeg, copied rather than re-encoded, taking about a second and losing nothing. Using the one already on the machine rather than adding seventy megabytes to the app was a deliberate trade, and its cost is that it can be absent -- so that is said in words, with the command to install it, instead of quietly saving the silent version. Worth recording: the first real save HUNG with an empty folder and no error, because a manifest is XML and every ampersand in its URLs is written as an entity. The player unescapes them; the downloader did not. That is the third time that same trap has been walked into in this project, so it is now a named function with a test rather than a resolution to be careful."
