@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-25.13"
+    "docVersion": "2026-10-25.14"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Activities can be edited from the day planner, like tasks",
+      "detail": "In the day planner, pressing a task opened its editor and pressing an activity beside it did nothing: the activity editor lived only on the screen that lists activities. It now opens from the planner too, on a press and from an 'Edit' line at the top of the right-click menu. It is not a second editor. The one that existed was moved into a component of its own, and both screens now open that same one, so the two cannot drift apart when a new kind of column is added. It carries everything the original did: name, icon, type, usual length, a note, his own columns, and delete, which still needs a second press. Editing changes the activity, not the blocks already placed on the calendar from it; those keep their own name and length, by his choice. Driving the real planner caught what the component tests could not: the activity rows had never had a press handler at all, so the editor was wired and unreachable. Five sabotages on the editor, all caught."
+    },
     {
       "item": "Right-click menus ran off the bottom of the window",
       "detail": "A right-click near the bottom of the Plan showed a menu's title and first row; the rest was below the window. The Plan, and the Skill Tree, each drew their own menu at the mouse and never asked whether it fit. The shared menu every other page uses did ask, but only half the question: a menu taller than the window was pushed to the top and still ran off the bottom. There is now one placement rule and every menu in the app uses it: below the cursor if it fits, otherwise above it, the way a desktop opens a menu near the bottom edge; right of the cursor if it fits, otherwise left of it; and never larger than the window, past which it scrolls inside itself. The Plan and the Skill Tree now use the shared menu and keep their own look. The companion's menus are the operating system's own and were already safe. Measured on the real Plan: right-clicking the bottom row in a 600-pixel window opened the menu upward with all seven rows visible."
