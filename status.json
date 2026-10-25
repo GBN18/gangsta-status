@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-25.9"
+    "docVersion": "2026-10-25.10"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Classifying a site from the day's log: two menus, no change, and half the rows left behind",
+      "detail": "One click on a site's category opened two menus, and choosing a category appeared to do nothing. Three separate faults produced that one experience. The menu was identified by the rule it would save, so every row of the same site opened its own copy at once -- each dropping under its own row, so they looked as though they belonged to other entries. A menu now belongs to the row it was opened on. The choice did save; the row went on showing 'unknown' because of a fix made earlier the same day, which re-reads rules for rows that HAD a rule when recorded and skipped rows that had none -- which are, by definition, the ones anyone classifies. Those rows now follow a rule made later, looked up by where they came from, so a website with no rule never borrows the browser's own app rule. And a rule on one address of a shop did not reach its other address: the Hebrew storefront and the payment pages were different subdomains. Choosing a category from the log now classifies the whole site, folding together only versions of one site -- www, mobile, a two-letter language code -- never different services on one domain, and never down to a bare country suffix. Older rules on another version of the same site are removed, since a more specific rule would otherwise go on overriding the new one. Measured on the real day afterwards: one menu per click, and every row of the site changed. Seven sabotages, all caught."
+    },
     {
       "item": "A new video player, and two marks every video remembers",
       "detail": "The player was redesigned on a canvas, three ways, and the immersive one was chosen for both places a video plays: the picture is everything, and the title and controls float on dark fades that disappear two and a half seconds after the mouse stops. The stage now takes the video's own shape, so a tall clip is no longer hung between two black bars. The controls are the app's own rather than the browser's, for one reason: every video now keeps two marks, and they have to be drawn ON the timeline, which the browser's bar cannot do. One is a bookmark -- one only, placed with a key, moved by placing it again. The other is the furthest point actually reached, and the rule between them was his: it only ever climbs while watching, EXCEPT that placing the bookmark resets it to the bookmark, backwards if need be. That reset looks like a bug and is the entire point, so it lives in one place on the server side and the player only draws what it is told. Only what is PLAYED counts as reached; dragging the bar to the end is not having watched it. A video opens at the furthest point, except one watched to the end, which starts again rather than opening on a final frame. Marks survive a video being marked seen. Gallery tiles now show a thin bar for how far into each one he got, and it appears the moment the player closes -- it did not at first, which only driving the real app on a real video showed. Ten sabotages, all caught; one of them was first written as a change that changed nothing, and would have passed for the wrong reason."
