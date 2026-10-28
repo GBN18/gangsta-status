@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-26.2"
+    "docVersion": "2026-10-28.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -210,6 +210,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The skill tree moves under a two-finger touchpad slide, also while pinching",
+      "detail": "Every wheel event on the skill tree zoomed, so on a laptop touchpad there was no way to move the view without letting go and dragging, and none at all during a pinch. The browser delivers a pinch as a wheel event with the control key set, and a two-finger slide as a plain wheel event with small, often diagonal amounts. Those are now told apart: a pinch zooms, a slide moves by exactly its amounts, and a mouse wheel notch (a large, purely vertical amount) still zooms. A fast slide can look like a notch, so once a gesture is known to come from a touchpad it stays one for half a second. A slide during a zoom moves both the target and the frame on screen, so the two combine instead of fighting. The decision is a small pure function with its own tests, each checked by breaking it; checked in the running app with real input events: slide moved without zooming, pinch plus slide did both, a notch zoomed."
+    },
     {
       "item": "A new kind of block rule: a time limit counted across the PC and the phone together",
       "detail": "The other rules block on a clock or until something is done. This one blocks on time spent: a list of apps and sites is COUNTED, and when their combined time reaches a limit, a second list is BLOCKED until the counter resets. The two lists are separate on purpose, and the form recommends blocking what is counted. The reset is configurable: every N hours, days or weeks, at a chosen time, on a chosen weekday; midnight every day by default. The rule can be limited to some days of the week, and it warns at chosen minutes before the limit (10 and 1 by default; can be turned off). Each device counts its own time from what it already records: the PC from its activity store, including the stretch still open; the phone from the system usage log and its own record of site visits. Each reports to the always-on process, which keeps the combined total in a file of its own that is never synced, and is the source of truth for it. Each device enforces with its own live count plus the other side's last known count, so a lost connection can delay a block but never cancel one. The rule rides the existing condition machinery: its condition is time-limit plus the rule's id, and 'met' means still under the limit, the same direction as every other condition. That is what let the browser extension, the hub's verdict stamp and an older phone build carry it unchanged. The counting window is computed separately on the PC, the always-on process and the phone, so the two implementations are held to the same test cases, including a clock change. Tests: Go 18 plus a sabotage round of ten (one gap found and closed: a rule switched off for the day still showed as reached); the app 18 plus a sabotage round of eight; the form 7."
