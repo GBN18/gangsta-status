@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-10-29.1"
+    "docVersion": "2026-10-29.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -212,7 +212,7 @@
   "latestUpdates": [
     {
       "item": "Touchpad zoom stays smooth after the window comes back from the taskbar",
-      "detail": "After the window was minimised and brought back in its normal (not maximised) size, a touchpad pinch on the skill tree zoomed in fixed jumps of about a fifth instead of smoothly. Maximising cured it until the next minimise. This is not the skill tree: Chromium receives a precision touchpad's gestures through Windows' Direct Manipulation, and after a minimise the window loses that hookup, so Windows falls back to plain wheel steps. Any resize restores it, which is why maximising helped. The main window now changes its width by one pixel and back whenever it is restored from the taskbar or shown from the tray, unless it is maximised or full screen. Checked in the packaged app through Windows itself: 900x600 before, 901x600 for a moment after the restore, 900x600 again a moment later. Whether the pinch is smooth again can only be felt on the real touchpad; synthetic input does not go through Direct Manipulation."
+      "detail": "After the window was minimised and brought back in its normal (not maximised) size, a touchpad pinch on the skill tree zoomed in fixed jumps of about a fifth instead of smoothly. Maximising cured it until the next minimise. This is not the skill tree: Chromium receives a precision touchpad's gestures through Windows' Direct Manipulation, and after a minimise the window loses that hookup, so Windows falls back to plain wheel steps. Any resize restores it, which is why maximising helped. The main window now changes its width by one pixel and back whenever it is restored from the taskbar or shown from the tray. A maximised window ignores a size change, and the owner found it loses the touchpad too, so a maximised one leaves and re-enters the maximised state in the same instant instead; that resizes the page without a visible frame (a red test window, its corner sampled every 7 ms through the restore, never showed anything else), and the size it returns to on restore-down is kept. Checked in the packaged app through Windows itself: normal 900x600, 901x600 for a moment, 900x600 again; maximised before and after, and restore-down still 900x600. Whether the pinch is smooth again can only be felt on the real touchpad; synthetic input does not go through Direct Manipulation."
     },
     {
       "item": "The skill tree moves under a two-finger touchpad slide, also while pinching",
