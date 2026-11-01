@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-01.4"
+    "docVersion": "2026-11-01.5"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -186,7 +186,7 @@
   "inDevelopment": [
     {
       "item": "A path for each skill, discovered one step at a time",
-      "detail": "The data and its rules are live on both machines: every skill starts with a research step (why, what and how), later steps are learn, practice, try, review, prove or quest, \"I can't do this yet\" puts an obstacle in front of the step he is on, a step can be split, and what he knows keeps its old versions. The path lives inside the skill like resources do, so the phone changes it through the same tree action road; ids and the date are filled in once by whoever receives the change first, and the paid next-step suggestion is made once and travels as an ordinary change. On the PC the skill window is now an open book: a band across the top, the pages, and coloured index tabs on its edge; its Path tab (which replaced Quests) draws the path as a climb, with his step's page beside it, the quests with the step each belongs to, and what he knows. The other PC tabs are being restyled to match, and the phone screens are being built."
+      "detail": "The data and its rules are live on both machines: every skill starts with a research step (why, what and how), later steps are learn, practice, try, review, prove or quest, \"I can't do this yet\" puts an obstacle in front of the current step, a step can be split, and the \"What I know\" list keeps its old versions. The path lives inside the skill like resources do, so the phone changes it through the same tree action road; ids and the date are filled in once by whoever receives the change first, and the paid next-step suggestion is made once and travels as an ordinary change. On the PC the skill window is an open book: a band across the top, the pages, and coloured index tabs on its edge. Its Path tab (which replaced Quests) draws the path as a climb, with the current step's page beside it, the quests with the step each belongs to, and what is known; the other six tabs now share the same look. The phone screens are being built."
     },
     {
       "item": "This status board",
@@ -219,6 +219,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The PC skill window's other tabs now match the open book",
+      "detail": "Progress shows the badge ladder with a bar toward the next badge; a \"How I'm doing\" row of three numbers that have a clear good or bad (days in a row with progress, active days this week, days since the last progress), each coloured good, okay or low and always with a sign and a word; plain counts in gold (WP earned, WP this week, steps walked, quests claimed, things known); the weekly WP chart redrawn with a round-number axis, a value only on this week and the best week, and a value on hover; and the progress log as striped rows. Activities explains that the list is what counts as progress and pays nothing by itself. Notes has two sub-tabs, the own note and Gangsta's, as ruled boxes of the same size that both stay loaded, plus a button that opens the skill's coach chat in the Chat tab. History is a month-by-month timeline that now also lists the path steps walked, obstacles cleared and changes to what is known. Manage is laid out as sections with chips, segmented choices, the three medals with their real thresholds, switches for lock, hide and fog, and dark menus. The grading rules are small tested functions, and each tab has a test that was checked by breaking the rule it guards."
+    },
     {
       "item": "Fixed: the skill window's Notes tab could show an empty box over a saved note",
       "detail": "The notes were written into their boxes only when a skill was opened, but the window opens on another tab, so the Notes boxes did not exist yet and stayed empty. The next keystroke then saved that empty box over the real note. The loaded text is now kept and written into a box whenever the box appears; a test pins it."
