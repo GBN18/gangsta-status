@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-01.10"
+    "docVersion": "2026-11-01.11"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -216,6 +216,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The touchpad fix itself was the wrong kind of nudge",
+      "detail": "The window-events log showed the one-pixel resize running right after a restore and the next pinch still coming in steps of 100; maximising the window then made every pinch smooth. So the nudge never worked for a normal-sized window. It now steps the window to maximised and straight back within one tick (a maximised window already did the reverse), at start and whenever the window comes back. If the step back lands anywhere other than where the window was, the log says so and the window is put back. Whether this fixes it is for the log to show on the next pinch."
+    },
     {
       "item": "Fixed: the touchpad pinch was jumpy from the moment the app started",
       "detail": "The new window-events log found the trigger on the first try: right after a launch, with nothing else happening, the very first pinch on the skill tree came in as whole steps of 100 instead of small smooth ones. The app already nudged the window size by one pixel when it came back from the taskbar or the tray, which brings the smooth pinch back, but a window shown at creation never fires that event, so a fresh start was never nudged. It now nudges once when the page has loaded. The log stays on, so it can show the fix holding and catch any other trigger."
