@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-01.2"
+    "docVersion": "2026-11-01.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -186,7 +186,7 @@
   "inDevelopment": [
     {
       "item": "A path for each skill, discovered one step at a time",
-      "detail": "The data and its rules are live on both machines: every skill starts with a research step (why, what and how), later steps are learn, practice, try, review, prove or quest, \"I can't do this yet\" puts an obstacle in front of the step he is on, a step can be split, and what he knows keeps its old versions. The path lives inside the skill like resources do, so the phone changes it through the same tree action road; ids and the date are filled in once by whoever receives the change first, and the paid next-step suggestion is made once and travels as an ordinary change. The PC and phone windows that draw it are being built."
+      "detail": "The data and its rules are live on both machines: every skill starts with a research step (why, what and how), later steps are learn, practice, try, review, prove or quest, \"I can't do this yet\" puts an obstacle in front of the step he is on, a step can be split, and what he knows keeps its old versions. The path lives inside the skill like resources do, so the phone changes it through the same tree action road; ids and the date are filled in once by whoever receives the change first, and the paid next-step suggestion is made once and travels as an ordinary change. On the PC the skill window is now an open book: a band across the top, the pages, and coloured index tabs on its edge; its Path tab (which replaced Quests) draws the path as a climb, with his step's page beside it, the quests with the step each belongs to, and what he knows. The other PC tabs are being restyled to match, and the phone screens are being built."
     },
     {
       "item": "This status board",
