@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-01.3"
+    "docVersion": "2026-11-01.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -219,6 +219,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Fixed: the skill window's Notes tab could show an empty box over a saved note",
+      "detail": "The notes were written into their boxes only when a skill was opened, but the window opens on another tab, so the Notes boxes did not exist yet and stayed empty. The next keystroke then saved that empty box over the real note. The loaded text is now kept and written into a box whenever the box appears; a test pins it."
+    },
     {
       "item": "The companion has a second color for pomodoro focus blocks, and the Classic face takes colors too",
       "detail": "Settings → Companion now has two colors, a normal one and one for pomodoro (Cyan, Green, Amber or Magenta; the pomodoro one starts as Amber), with a preview of each. The companion wears the pomodoro color only while a focus block is actually running; breaks and a paused timer use the normal color. The timer runs in the main window, so it sets a flag in local storage and the floating companion window hears it the same way it hears the other avatar settings; the flag is cleared when the main window starts, so a crash mid-block cannot leave it on. The Retro face glows in the color; the Classic face, which had no color before, now has its eyes, eyebrows and edge tinted with it, while the strong state colors (angry red, celebrating gold, sleepy grey) still win. The rule for when the pomodoro color applies is a small tested function."
