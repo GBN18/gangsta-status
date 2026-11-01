@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-01.8"
+    "docVersion": "2026-11-01.9"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -216,6 +216,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A window-events log to find why the touchpad pinch turns into jumps",
+      "detail": "Sometimes the touchpad pinch on the skill tree stops being smooth and zooms in big jumps until the window is resized, even though the app already nudges the window size when it comes back from the taskbar or the tray. The likely cause is Windows' smooth-gesture helper getting stuck and falling back to plain wheel steps, but nothing recorded what happened before, so the trigger is unknown. The desktop app now writes a small local log of window events (focus, hide and show, minimise and restore, resize, sleep and wake, lock and unlock, display changes, tab changes) and one line per pinch with its raw step sizes, marked smooth or stepped. It is a record only and changes nothing about the window; the log is size-capped, stays on the PC and holds no content from the app."
+    },
     {
       "item": "Chat replies show what they actually did; phone chats get titles, traces and costs",
       "detail": "Every assistant message now carries the tools it ran that change something, one line each taken from the tool's own result (reading tools are left out), and the chat on the PC and on the phone shows them under the reply with a tick, or a cross for a failure. A reply's words can still be wrong; the lines under it come from what ran. Chats answered by the satellite had three gaps, now closed: a thread started on the phone stayed 'New chat' for good because the fold that was meant to name it never did (the satellite now names it after the first reply, and the PC names any thread folded without one); 'What happened' on the PC found nothing because the trace stayed on the satellite's disk (the trace entry, without the prompt, now rides the exchange and is kept once); and the spend for those turns never reached the PC's cost ledger (its ledger row now rides along too, counted once). The existing rule against claiming an action that did not happen was tightened in place rather than added to: it now also forbids 'I'm doing it now' without the tool call in the same reply."
