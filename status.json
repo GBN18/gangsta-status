@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-02.1"
+    "docVersion": "2026-11-02.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -216,6 +216,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Fixed: the touchpad pinch stays smooth after Alt+Tab, and the window trick is gone",
+      "detail": "After the main window stopped using the keep-running setting, the window-events log showed every pinch smooth, including right after an Alt+Tab, the case that always broke before and that the old trick never covered. The maximise-and-back nudge the app did at start and when the window came back is removed. The log stays on, so any jumpy pinch that ever returns will show what came before it."
+    },
     {
       "item": "The real cause of the jumpy touchpad pinch: the main window's keep-running setting",
       "detail": "The Electron upgrade did not fix it, so the cause was narrowed down with a bare test window: with Electron's backgroundThrottling turned off (the main window's setting, there so the pomodoro ends on time while hidden) the pinch broke after one Alt+Tab; with it left on, it stayed smooth; Chrome and Edge never had the problem. In Electron's code, that setting stops the page from ever counting as hidden, but Chromium still hides the page's inner window that receives the smooth pinch, and the step that shows it again only runs for a page that was hidden. The main window now uses the normal setting, and Chromium's disable-background-timer-throttling switch keeps the page timers on time instead: measured with a window minimised for 7 minutes, a page timer fired every 60 seconds without the switch and every second with it. The pomodoro and the time-limit pop-ups keep their timing with no code change, and a hidden window now stops drawing. The maximise nudge stays until the log shows the pinch smooth after an Alt+Tab."
