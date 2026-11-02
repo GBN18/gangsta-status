@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-02.10"
+    "docVersion": "2026-11-02.11"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -216,6 +216,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Changed: the skill tree on the accountability board gets the whole window",
+      "detail": "In Skill tree mode everything above the tree fits in one thin row: the two tabs, the Board / Skill tree switch, the tree's own line (read only, the AI money) and the buttons. The tree's zoom and drag feel the same as in Gangsta for both men (speed 1.7x, acceleration 2.0x, 50 ms smoothing, momentum 1.7x)."
+    },
     {
       "item": "New: each man's skill tree on the accountability board, one tab per man",
       "detail": "The board now shows one man per tab, on the computer as on the phone, with a Board / Skill tree switch. The skill tree is Gangsta's own skill tree page in a board mode. GBN's tree comes from Gangsta and is read only there. The other man gets the full skill tree on the board itself, kept apart on the satellite and copied to the PC as a backup, with the AI buttons inside a monthly limit that only GBN can change, and no coach chat. A new Settings page lets each man choose what the other sees: single skills, whole areas, and tabs of the skill window (notes, resources and the Manage tab start hidden). Hidden parts are removed on the satellite before anything is sent. The other man's tree starts empty: no starter areas or skills, only the generic shop rewards."
