@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-02.2"
+    "docVersion": "2026-11-02.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -216,6 +216,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Prompt Feed: every AI prompt is listed now, with its message and a decision graph",
+      "detail": "The Back-End page's Prompt Feed showed 11 prompts; the app sends about 30. It now lists all of them: the chat's fetching rounds and warden decision round, chat titles, the memory prompts, the skill and task prompts, recommendations, the video wall, the watch list, the alarm, the warden report, the games, the video classifier and the recipe painter. Each entry has three views: Flow (how the app decides to make the call, with yes/no arrows), Instructions and Message (what goes in the user's turn). The chat, coach, thought-chat and summary entries now show the full real prompt; before, parts were missing. Each prompt is built by the same function as the real call, and a test reads the source and fails when a model call has no entry. Also fixed: two out-of-date chat rules (tasks can be put on the calendar from chat; memory no longer lives in a notes folder), a dead memory prompt was removed, and the thought chat's opening line now runs on the medium model the routing table says."
+    },
     {
       "item": "Fixed: the touchpad pinch stays smooth after Alt+Tab, and the window trick is gone",
       "detail": "After the main window stopped using the keep-running setting, the window-events log showed every pinch smooth, including right after an Alt+Tab, the case that always broke before and that the old trick never covered. The maximise-and-back nudge the app did at start and when the window came back is removed. The log stays on, so any jumpy pinch that ever returns will show what came before it."
