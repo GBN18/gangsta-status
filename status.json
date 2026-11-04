@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-04.2"
+    "docVersion": "2026-11-04.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -163,7 +163,8 @@
       "Log workouts and recipes, tick habits, write journal entries",
       "Hold a full assistant conversation, including per-skill coaching",
       "Add, tick and pin learning resources on a skill, including by sharing a link from another app",
-      "Walk a skill's path: finish, split or block a step, plan the next one or ask for ideas, tie quests to steps, and keep what is known with its older versions"
+      "Walk a skill's path: finish, split or block a step, plan the next one or ask for ideas, tie quests to steps, and keep what is known with its older versions",
+      "Answer commitments, report rule breaks, mark fines paid, and make commitments from templates"
     ]
   },
   "knownIssues": [
@@ -224,7 +225,7 @@
   "latestUpdates": [
     {
       "item": "New: Commitments and rules",
-      "detail": "A Commitments page with two tabs. Commitments sit on a timeline by deadline with a Today mark; when a deadline comes the card asks 'Did you keep it?' with Kept, Broke, or Good reason (a break with a reason costs nothing and the reason is kept). Rules have their own fine per break and their exceptions written under them. Templates turn a repeat commitment into one click. Chat can read all of it but never change it. The satellite serves all of it to the phone with the laptop off; the phone app’s own tab is the next step. The sidebar shows how many deadlines wait for an answer. The Activity page's old Rules tab is now called Block rules."
+      "detail": "A Commitments page with two tabs. Commitments sit on a timeline by deadline with a Today mark; when a deadline comes the card asks 'Did you keep it?' with Kept, Broke, or Good reason (a break with a reason costs nothing and the reason is kept). Rules have their own fine per break and their exceptions written under them. Templates turn a repeat commitment into one click. Chat can read all of it but never change it. The phone has its own tab for all of it and works with the laptop off. The sidebar shows how many deadlines wait for an answer. The Activity page's old Rules tab is now called Block rules."
     },
     {
       "item": "Fixed: Gangsta no longer stays offline after the internet comes back",
