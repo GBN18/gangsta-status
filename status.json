@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-04.1"
+    "docVersion": "2026-11-04.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -135,6 +135,10 @@
     {
       "rule": "Finishing a learning resource pays no work points until the owner decides how it cannot be farmed.",
       "because": "Marking a video or link done is one click, and a click that mints points is exactly what the economy is built to refuse. The owner asked for the reward to stay undecided rather than guessed."
+    },
+    {
+      "rule": "A commitment or rule is broken only when the owner says so. Nothing reads activity, focus time, block rules or the warden to decide it.",
+      "because": "The owner asked for this explicitly: there can be a good reason to break a promise, and only the owner knows it. A fine written by a machine is not a fine anyone agreed to."
     }
   ],
   "features": {
@@ -149,7 +153,8 @@
       "Habit and daily tracking, journal, long-term and episodic memory",
       "Activity tracking across desktop and phone, unified into one timeline",
       "Alarm with a spoken wake-up pre-loaded to the phone so it rings with the desktop off",
-      "Workouts, recipes, practice boards, a pomodoro timer and an on-screen companion avatar"
+      "Workouts, recipes, practice boards, a pomodoro timer and an on-screen companion avatar",
+      "Commitments and rules: promises with a deadline and a fine in shekels, and standing rules with a fine per break. A timeline asks 'did you keep it?' when a deadline comes; a break can carry a good reason and then costs nothing; templates make a repeat commitment in one step. Moved in once from an outside database, which is left as it was."
     ],
     "phoneCanDoAlone": [
       "Read and change the whole shopping cart",
@@ -212,10 +217,15 @@
       "Multi-user features, accounts, sign-up or sharing — there is one user and no server-side identity",
       "Anything that asks the cloud process to be the permanent owner of state",
       "Anything that makes the phone depend on a round trip to show a change",
-      "Replacing the local RPC with a public API — the desktop backend binds to loopback deliberately"
+      "Replacing the local RPC with a public API — the desktop backend binds to loopback deliberately",
+      "Detecting broken commitments or rules automatically from tracked activity or focus time — the owner decided against it"
     ]
   },
   "latestUpdates": [
+    {
+      "item": "New: Commitments and rules",
+      "detail": "A Commitments page with two tabs. Commitments sit on a timeline by deadline with a Today mark; when a deadline comes the card asks 'Did you keep it?' with Kept, Broke, or Good reason (a break with a reason costs nothing and the reason is kept). Rules have their own fine per break and their exceptions written under them. Templates turn a repeat commitment into one click. Chat can read all of it but never change it. The satellite serves all of it to the phone with the laptop off; the phone app’s own tab is the next step. The sidebar shows how many deadlines wait for an answer. The Activity page's old Rules tab is now called Block rules."
+    },
     {
       "item": "Fixed: Gangsta no longer stays offline after the internet comes back",
       "detail": "While offline, Gangsta checked for the way back by connecting to one public address only. On a network that blocks that one address it stayed offline until a restart, even with the internet working. It now tries a few addresses at once (two public ones, the AI service and the satellite) and is back online as soon as any one answers. The OFFLINE tag in the title bar is now a button: pressing it checks right away, shows Checking, and then either disappears or says still offline for a few seconds."
