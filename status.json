@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-04.3"
+    "docVersion": "2026-11-05.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -154,7 +154,8 @@
       "Activity tracking across desktop and phone, unified into one timeline",
       "Alarm with a spoken wake-up pre-loaded to the phone so it rings with the desktop off",
       "Workouts, recipes, practice boards, a pomodoro timer and an on-screen companion avatar",
-      "Commitments and rules: promises with a deadline and a fine in shekels, and standing rules with a fine per break. A timeline asks 'did you keep it?' when a deadline comes; a break can carry a good reason and then costs nothing; templates make a repeat commitment in one step. Moved in once from an outside database, which is left as it was."
+      "Commitments and rules: promises with a deadline and a fine in shekels, and standing rules with a fine per break. A timeline asks 'did you keep it?' when a deadline comes; a break can carry a good reason and then costs nothing; templates make a repeat commitment in one step. Moved in once from an outside database, which is left as it was.",
+      "On a phone-size screen the Crew board shows the skill tree the way the phone app draws it (the whole tree as branch panels, a branch as a focus tree or tiers, quests, campaign and a skill's window with its climb), with a switch to the PC view. The same read and write rules apply as in the PC view."
     ],
     "phoneCanDoAlone": [
       "Read and change the whole shopping cart",
@@ -223,6 +224,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Crew board: the phone's skill tree on a phone",
+      "detail": "Opened on a phone, the Crew board's skill tree now looks like the phone app's Skill Tree tab instead of the desktop page squeezed small. A small 'PC view' / 'Phone view' switch picks the other one, and the choice is remembered on that device. Nothing about who may change what is different. In the phone app itself the branch list is gone: the tree tab always shows the whole tree, and the switch for abandoned branches moved under it."
+    },
     {
       "item": "New: Commitments and rules",
       "detail": "A Commitments page with two tabs. Commitments sit on a timeline by deadline with a Today mark; when a deadline comes the card asks 'Did you keep it?' with Kept, Broke, or Good reason (a break with a reason costs nothing and the reason is kept). Rules have their own fine per break and their exceptions written under them. Templates turn a repeat commitment into one click. Chat can read all of it but never change it. The phone has its own tab for all of it and works with the laptop off. The sidebar shows how many deadlines wait for an answer. The Activity page's old Rules tab is now called Block rules."
