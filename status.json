@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-05.1"
+    "docVersion": "2026-11-05.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -224,6 +224,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Crew board on a phone: one row on top, and pinch to zoom",
+      "detail": "In skill tree mode the board's top is one row again on a phone: the two names, then small icons for Board, Skill tree, Settings and Log out (the words come back on a wide screen). The 'read only' line under it is gone; Y's AI money for the month stays on the Settings page. The phone version of the tree now zooms with two fingers, around the point between them, as the phone app does."
+    },
     {
       "item": "Crew board: the phone's skill tree on a phone",
       "detail": "Opened on a phone, the Crew board's skill tree now looks like the phone app's Skill Tree tab instead of the desktop page squeezed small. A small 'PC view' / 'Phone view' switch picks the other one, and the choice is remembered on that device. Nothing about who may change what is different. In the phone app itself the branch list is gone: the tree tab always shows the whole tree, and the switch for abandoned branches moved under it."
