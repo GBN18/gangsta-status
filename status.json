@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-05.2"
+    "docVersion": "2026-11-06.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -178,6 +178,11 @@
       "issue": "Nothing records how long an individual task took, except when the user answers the \"how long did that take?\" buttons on a completion.",
       "impact": "Calibration's estimate-vs-actual stat now has one source instead of two. The old second source read each task's own file, which no longer exists, and the import that moved tasks into the store flattened their nested time entries down to the last session, so it could not be re-pointed without changing what the number means.",
       "status": "known"
+    },
+    {
+      "issue": "Marking a quest's task done from the calendar, the task editor or the phone's calendar closes the task without claiming the quest.",
+      "impact": "That quest's WP is never paid, and the quest stays open in the skill tree with its task already closed.",
+      "status": "to be fixed when quests move into the task store"
     }
   ],
   "notCovered": {
@@ -195,6 +200,10 @@
     {
       "item": "This status board",
       "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
+    },
+    {
+      "item": "Quests become tasks",
+      "detail": "A quest will be a task that carries quest fields, stored with the other tasks, instead of a separate record in the skill tree linked to a task by id. After that comes a new reward formula (time plus three effort factors), routines that repeat with a count per period, and then the shop."
     }
   ],
   "roadmap": [
@@ -224,6 +233,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Tasks page: a quest's task shows its quest controls",
+      "detail": "On the Tasks page a quest's task now shows the quest mark, its progress and its Log / Claim button, and can no longer be ticked done like a plain task. The page looked quests up by the task's path with its capitals, while the rows are keyed in lower case, so no quest ever matched: the controls were never drawn, and ticking such a task closed it without paying any WP. The key is now built the same way on both sides, with a test. The shop's seven placeholder rewards were also removed, at the owner's request."
+    },
     {
       "item": "Crew board on a phone: one row on top, and pinch to zoom",
       "detail": "In skill tree mode the board's top is one row again on a phone: the two names, then small icons for Board, Skill tree, Settings and Log out (the words come back on a wide screen). The 'read only' line under it is gone; Y's AI money for the month stays on the Settings page. The phone version of the tree now zooms with two fingers, around the point between them, as the phone app does."
