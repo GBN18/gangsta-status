@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-06.1"
+    "docVersion": "2026-11-06.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -182,7 +182,7 @@
     {
       "issue": "Marking a quest's task done from the calendar, the task editor or the phone's calendar closes the task without claiming the quest.",
       "impact": "That quest's WP is never paid, and the quest stays open in the skill tree with its task already closed.",
-      "status": "to be fixed when quests move into the task store"
+      "status": "quests are tasks now; the task screens showing a quest's own controls instead of a tick is the next step"
     }
   ],
   "notCovered": {
@@ -203,7 +203,7 @@
     },
     {
       "item": "Quests become tasks",
-      "detail": "A quest will be a task that carries quest fields, stored with the other tasks, instead of a separate record in the skill tree linked to a task by id. After that comes a new reward formula (time plus three effort factors), routines that repeat with a count per period, and then the shop."
+      "detail": "Done on the PC, the satellite and the Crew board (see latestUpdates). Next: the task screens - the Tasks page, the calendar, the task editor and the phone - show a quest's +1, Claim and Fail instead of a tick. After that comes a new reward formula (time plus three effort factors), routines that repeat with a count per period, and then the shop."
     }
   ],
   "roadmap": [
@@ -233,6 +233,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Quests are tasks",
+      "detail": "A quest is now a task note that carries the quest's own fields (skill, type, difficulty, target, progress, reward, status), instead of a separate record in the skill tree held to a task by a link that kept drifting. The skill tree, the phone and the Crew board read the same quest list as before: it is filled from the task store on every read and never written to the tree file. The tree keeps the money - WP, badges, the ledger, and a list of quests already paid - so a claim pays once even when its second write, closing the task, is lost. On its first start the PC moves its quests onto their tasks; a satellite shows quests it has not seen moved as read-only until the PC pushes both files. Y's tree on the Crew board has its own task store for its quests. A quest made on the phone gets its ids at the satellite, derived from the tap's own id, so both machines make the same quest and a resent tap makes no second one; the route also stops dropping the phone form's type, tracking and unit. Quest taps on the satellite wait in the notes overlay, which the PC releases by recording the tap's id in its notes file. End Week is gone, so a one-time quest no longer goes back to zero at the end of a week. Failing a quest closes its task. A progress log is a task born done and is not listed on the Tasks page. New tasks keep their title as typed, where they used to read it back off a cleaned-up, numbered file name. Before the move, 74 leftover copies of five quests' tasks - made by an old bug that minted a new task on every page load - were deleted at the owner's request."
+    },
     {
       "item": "Tasks page: a quest's task shows its quest controls",
       "detail": "On the Tasks page a quest's task now shows the quest mark, its progress and its Log / Claim button, and can no longer be ticked done like a plain task. The page looked quests up by the task's path with its capitals, while the rows are keyed in lower case, so no quest ever matched: the controls were never drawn, and ticking such a task closed it without paying any WP. The key is now built the same way on both sides, with a test. The shop's seven placeholder rewards were also removed, at the owner's request."
