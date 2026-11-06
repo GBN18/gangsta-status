@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-06.3"
+    "docVersion": "2026-11-06.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -182,7 +182,7 @@
     {
       "issue": "On the phone, marking a quest's task done from the calendar or a task list closes the task without claiming the quest. Fixed on the PC, where every path that marks a task done now refuses an unclaimed quest.",
       "impact": "That quest's WP is never paid, and the quest stays open in the skill tree with its task already closed.",
-      "status": "fixed on the PC; the phone app's fix is the next step"
+      "status": "fixed on the PC; fixed in a phone build that is built and tested but not installed yet"
     }
   ],
   "notCovered": {
@@ -202,8 +202,8 @@
       "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
     },
     {
-      "item": "Quests become tasks",
-      "detail": "Done on the PC, the satellite and the Crew board, and the PC's task screens now show a quest's own buttons (see latestUpdates). Next: the phone app. After that comes a new reward formula (time plus three effort factors), routines that repeat with a count per period, and then the shop."
+      "item": "Quest rewards from time and effort",
+      "detail": "Quests are tasks on every device now (see latestUpdates); the phone build carrying it waits to be installed. Next: a quest's WP comes from its estimated active minutes and three effort factors - concentration, resistance to starting, and physical or emotional effort - with each extra stretch of time counting less than the one before. After that, routines that repeat with a count per period, and then the shop."
     }
   ],
   "roadmap": [
@@ -233,6 +233,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Quests are tasks on the phone too",
+      "detail": "The phone reads a quest off its task's note instead of matching the task's file name or title against the skill tree, which is how a quest whose task had been filed, renamed or copied lost its buttons. Home, the calendar and the task editor show a quest's own button (log, did it, or claim N WP) and Fail, never Done; a finished quest reads as paid or failed; a tap on its way shows at once without being counted twice when the notes arrive. Progress logs are left out of the task lists. The End Week button is gone. Editing a task's tags keeps its quest tag, and a parked task's parked tag, which a tag edit used to drop. A task with no title field reads its title off its file name, as the PC does. It uses only what the satellite already serves: the quest fields on task notes and the existing quest taps. 541 unit tests pass; the build waits to be installed on the phone."
+    },
     {
       "item": "A quest has its own buttons on every PC screen",
       "detail": "A quest is finished by claiming it, never by a tick. On the Tasks page a quest's menu offers its button (Log, Did it, or Claim N WP) and Fail quest, the detail card has the same two buttons and no Done status, and a finished quest reads as \"✓ +N WP\" or a grey \"✗ Failed\" in the Done list; undoing a fail is reopening its task. In the calendar a quest block's menu offers the same buttons instead of Mark done, and so does a planned quest in a day plan. The task editor shows a quest box with progress, WP and the two buttons, has no Done to set by hand, and now sends a status only when it changed (it used to re-stamp a done task as finished today on every save). The Command Post's main-task button becomes the quest's button when the main task is a quest. Underneath, every way of marking a task done ends in one function, and it now refuses a quest nobody has claimed or failed, so a chat tool or a missed screen cannot close one unpaid; reopening a claimed quest is refused too, because its WP is paid. The button rules live in one place, shared by every screen."
