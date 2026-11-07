@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-07.3"
+    "docVersion": "2026-11-07.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Shop time opens the night curfew too",
+      "detail": "Time bought in the shop only opened the user's block rules, so an app held by Gangsta's night curfew stayed shut and the shop still said it was open. A pass now opens Gangsta's own blocks as well: the curfew and the warden's blocks, on the PC browser, the phone browser and the phone's apps. The pass is read each time a block list is served, so nothing is lifted and put back by a timer: when the time ends or the buy is undone, the block is there on the next read. The shop now lists what the curfew and the warden hold, and names what is blocking each app. A list block the user started by hand is not for sale; the shop says so and takes no WP."
+    },
     {
       "item": "The shop: rewards Gangsta prices, and time on blocked apps",
       "detail": "WP is now spent in a shop on the PC and the phone. A reward is something real the user writes down; Gangsta's model says how many days of saving it is worth (1 to 60) and how long to wait between two buys, with one reason, and the shop turns the days into WP: 6 WP a day, 50% saved, so 3 WP for each day. The price is locked, and only Gangsta can change it, in chat, when he hears a real reason. Time on the user's own block rules is sold by the quarter hour (15 minutes is a quarter of a day) for an app and its site together, and each buy on the same day costs double the one before. Any buy can be undone in its first 10 minutes. The price rule lives in one value in the backend; the PC and the phone only show the prices they are sent, so a different price system is one change in one place. A phone tap is applied on the satellite at once and folded on the PC under the same id, with the time of the tap, so a wait or an undo window is judged the same on both. A refused buy is answered with the reason and is not queued. The Crew board shows the other man the rewards only, never the buys or the blocked apps."
