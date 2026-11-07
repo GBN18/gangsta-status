@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-07.5"
+    "docVersion": "2026-11-07.6"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -231,7 +231,7 @@
   "latestUpdates": [
     {
       "item": "Gangsta adds and removes shop rewards in chat",
-      "detail": "The user can now ask Gangsta in chat to put a reward in the shop. Gangsta prices it with the same step as the shop's own button, tells the user the price, the wait and why, and adds it only after the user says yes in a later message; the code refuses an add in the same answer that proposed it. The reward goes in at the price the user was shown. Gangsta can also take a reward out of the shop when asked. This works in phone chat too, through the satellite."
+      "detail": "The user can now ask Gangsta in chat to put a reward in the shop. Gangsta prices it with the same step as the shop's own button, tells the user the price, the wait and why, and adds it only after the user says yes in a later message; the code refuses an add in the same answer that proposed it. The reward goes in at the price the user was shown. Gangsta can also take a reward out of the shop when asked. This works in phone chat too, through the satellite. Fixed the same day: when the user said yes, Gangsta looked the price up again before adding it, and that look-up marked the price as not yet answered, so the add was refused. Looking it up again now keeps the price the user was shown, and a plain yes in chat is enough."
     },
     {
       "item": "Shop time opens the night curfew too",
