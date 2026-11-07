@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-07.2"
+    "docVersion": "2026-11-07.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -170,8 +170,8 @@
   },
   "knownIssues": [
     {
-      "issue": "The phone build with the new quest form and routines is not installed yet.",
-      "impact": "Until it is, a quest made on the phone still picks a difficulty and is priced the old way, and the phone cannot make a routine that repeats. Nothing is lost; the next install switches it over.",
+      "issue": "The phone build with the new quest form, routines and the shop is not installed yet.",
+      "impact": "Until it is, a quest made on the phone still picks a difficulty and is priced the old way, the phone cannot make a routine that repeats, and the phone has no shop. Nothing is lost; the next install switches it over.",
       "status": "waiting for the phone to be connected"
     },
     {
@@ -200,10 +200,6 @@
     {
       "item": "This status board",
       "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
-    },
-    {
-      "item": "The shop",
-      "detail": "Quests are priced by the new formula and routines count per period (see latestUpdates). Next: the shop, where the WP is spent. What it sells and how prices are set are still being decided."
     }
   ],
   "roadmap": [
@@ -233,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The shop: rewards Gangsta prices, and time on blocked apps",
+      "detail": "WP is now spent in a shop on the PC and the phone. A reward is something real the user writes down; Gangsta's model says how many days of saving it is worth (1 to 60) and how long to wait between two buys, with one reason, and the shop turns the days into WP: 6 WP a day, 50% saved, so 3 WP for each day. The price is locked, and only Gangsta can change it, in chat, when he hears a real reason. Time on the user's own block rules is sold by the quarter hour (15 minutes is a quarter of a day) for an app and its site together, and each buy on the same day costs double the one before. Any buy can be undone in its first 10 minutes. The price rule lives in one value in the backend; the PC and the phone only show the prices they are sent, so a different price system is one change in one place. A phone tap is applied on the satellite at once and folded on the PC under the same id, with the time of the tap, so a wait or an undo window is judged the same on both. A refused buy is answered with the reason and is not queued. The Crew board shows the other man the rewards only, never the buys or the blocked apps."
+    },
     {
       "item": "Routines count per period of their repeat",
       "detail": "A routine quest repeats on its own task's repeat (every day, week or month, every N days, or on chosen weekdays), and its target is the count for one period, such as three gym sessions a week. Each log counts toward the period that holds now; at the full count it can be claimed, and it pays once for that period. The next period starts again from 0. A missed period pays nothing, takes nothing, and keeps no streak. Weeks run Sunday to Saturday and a day starts at local midnight. Nothing is reset by a job: the note keeps the period its count was logged in and the period it was paid for, and a reader that finds an older one reads 0 and unpaid, so a period that passes with every device off is fresh the moment anything looks. Claiming ticks the task's instance, which rolls its schedule to the next one; a rule on chosen weekdays skips the other days. The PC add-quest form and the phone's quest forms ask how a routine repeats; counts read like 2/3 this week. The backend and the phone are checked against the same period cases; 550 phone unit tests pass."
