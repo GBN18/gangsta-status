@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-06.5"
+    "docVersion": "2026-11-07.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -170,6 +170,11 @@
   },
   "knownIssues": [
     {
+      "issue": "The phone build with the new quest form is not installed yet.",
+      "impact": "Until it is, a quest made on the phone still picks a difficulty and is priced the old way. Nothing is lost; the next install switches it over.",
+      "status": "waiting for the phone to be connected"
+    },
+    {
       "issue": "A read-back guard in the calendar's store-only write path is not covered by any test.",
       "impact": "It is defence against a store that writes and then cannot read back. Nothing can reach it while the store's own refusal stands, so it is unverified rather than known-good.",
       "status": "documented in place"
@@ -197,8 +202,8 @@
       "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
     },
     {
-      "item": "Quest rewards from time and effort",
-      "detail": "Quests are tasks on every device now (see latestUpdates). Next: a quest's WP comes from its estimated active minutes and three effort factors - concentration, resistance to starting, and physical or emotional effort - with each extra stretch of time counting less than the one before. After that, routines that repeat with a count per period, and then the shop."
+      "item": "Routines with a count per period",
+      "detail": "Quests are priced by the new formula now (see latestUpdates). Next: a routine repeats on its task's own repeat with a count per period, such as three times a week, and pays once when the count is reached; a missed period pays nothing. After that, the shop."
     }
   ],
   "roadmap": [
@@ -228,6 +233,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A quest's WP comes from its time and effort",
+      "detail": "Every new quest is priced by one formula: S = 1 + log2(1 + t/15) + 0.75C + 0.85R + 0.55E, and the WP is S rounded, at least 1, with no cap. t is the estimated active minutes for the whole quest; C, R and E are concentration (0 to 3), resistance to starting (0 to 4) and physical or emotional effort (0 to 3), rated against written definitions that the form shows word for word. Each extra stretch of time counts less than the one before. The quest type still changes the result: Milestone and Challenge add 1, Recovery pays half. The label (Tiny 1-3, Normal 4-6, Hard 7-9, Very Hard 10+) comes from the WP before the type changes it, and only describes. The add-quest form, the progress log, the suggestion editor and the approval cards on the PC, and the three quest forms on the phone, share one design: a time in HH:MM with a Total or Each switch for a quest done more than once, and one row of buttons per factor. A new quest starts with every level at 0 and cannot be added without a time. The phone sends the rating, never a WP number; the always-on process and the PC price it. Gangsta's own proposals rate the same factors. Quests made before keep their old price. The pick-a-difficulty box and the hand-typed WP on a progress log are gone. The Go backend, the PC form and the phone are checked against the same price cases; 546 phone unit tests pass."
+    },
     {
       "item": "Quests are tasks on the phone too",
       "detail": "The phone reads a quest off its task's note instead of matching the task's file name or title against the skill tree, which is how a quest whose task had been filed, renamed or copied lost its buttons. Home, the calendar and the task editor show a quest's own button (log, did it, or claim N WP) and Fail, never Done; a finished quest reads as paid or failed; a tap on its way shows at once without being counted twice when the notes arrive. Progress logs are left out of the task lists. The End Week button is gone. Editing a task's tags keeps its quest tag, and a parked task's parked tag, which a tag edit used to drop. A task with no title field reads its title off its file name, as the PC does. It uses only what the satellite already serves: the quest fields on task notes and the existing quest taps. 541 unit tests pass, and the build is installed on the phone."
