@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-07.7"
+    "docVersion": "2026-11-08.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Watch: the buttons above a tall video fit again",
+      "detail": "On a tall video, such as an Instagram reel, the buttons above the player ran off its right edge and the close button was cut off. They now wrap onto a second line under the title when there is no room."
+    },
     {
       "item": "Practice clips zoom, and open in a window of their own",
       "detail": "A clip on a practice board can now be zoomed: the mouse wheel zooms in where the mouse is, a drag moves the picture, and a double-click puts it back. The clips have a small player of their own for this, because the built-in video controls grew with the picture and slid away. Each clip can also open in its own window, which can go on another screen at any size; it has a keys menu that opens and closes, and a key tapped there plays both clips from their own marks. While a clip is out, the board shows where it is, and its keys, marking and both-play buttons work with the window. Closing the window puts the clip back on the board where it stopped. This is on the PC only."
