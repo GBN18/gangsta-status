@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-08.1"
+    "docVersion": "2026-11-09.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -200,6 +200,10 @@
     {
       "item": "This status board",
       "detail": "A public, read-only description of the system, served by the always-on process and updated in the same commit as each change."
+    },
+    {
+      "item": "The Library on the phone",
+      "detail": "The same board on the phone, with the routines in a row of round icons at the top, a tap to tick a step and a long press for the picture menu. The store, the routes and the sync are already in place; the phone screens are being built."
     }
   ],
   "roadmap": [
@@ -230,8 +234,12 @@
   },
   "latestUpdates": [
     {
+      "item": "The Library: routines as a board of photo prints (PC)",
+      "detail": "A new Library page holds the user's routines, such as waking up, each one a set of steps in order (put on pants, drink 1500 ml of water). Each step is a photo print pinned to a board, with its amount under it. Clicking a print marks the step done for today: the picture turns grey under a large green DONE stamp, and the next step says 'You are here'. Ticks are kept for today only and clear the next day; there is no history, by choice. A right-click on a step adds the user's own photo, paints one with the image model (paid), removes the picture, or edits, moves or deletes the step; until a step has a picture it shows an emoji. The gear holds 'Generate images for done steps', start over, rename and delete. In chat, Gangsta can draft a routine on a card, and the card's Add button puts it in the Library. Adding a shop reward from chat now works the same way: Gangsta prices it on a card and the Add button puts it in at that price, in place of saying yes."
+    },
+    {
       "item": "Watch: the buttons above a tall video fit again",
-      "detail": "On a tall video, such as an Instagram reel, the buttons above the player ran off its right edge and the close button was cut off. They now wrap onto a second line under the title when there is no room."
+      "detail": "On a tall, phone-shaped video, the buttons above the player ran off its right edge and the close button was cut off. They now wrap onto a second line under the title when there is no room."
     },
     {
       "item": "Practice clips zoom, and open in a window of their own",
