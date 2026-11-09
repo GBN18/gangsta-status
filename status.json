@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-09.2"
+    "docVersion": "2026-11-09.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Library pictures in the recipe book's vintage style",
+      "detail": "Generate a picture on a Library step now paints in the same 1950s advertising style as the recipe book, rewritten for steps: an action shows a man doing it, and an item or an amount shows that item. The picture stays square, to fit the prints. The style text is in Settings, on a new Library page, and can be changed there like the recipe style; saving it empty puts the default back."
+    },
     {
       "item": "The Library on the phone, and its chat cards",
       "detail": "The phone has the Library too: the routines in a row of round icons at the top, and the routine on show as a board of prints, two to a row. A tap marks a step done for today and shows at once; a long press opens the step's menu, with a photo from the phone's gallery or a painted picture first, then mark done, edit, move and delete. The gear has 'Generate images for done steps', start over, rename and delete. A photo or a painted picture is made on the PC, because pictures live in a synced folder; the phone says so and the picture shows once the PC has synced. The routine and reward cards Gangsta drafts in chat now show on the phone with the same Add button. On the satellite, Add puts the item in at once and queues the same Accept for the PC; both ends take the item's id from the card, so nothing is added twice."
