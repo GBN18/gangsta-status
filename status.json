@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-09.5"
+    "docVersion": "2026-11-09.6"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A PC app's category sticks, and the Activity columns line up",
+      "detail": "Changing the category of some PC apps on Activity seemed to do nothing: the choice was saved under the program's name in small letters, and the app is reported with capital letters, so the rule was never found. A rule now matches its app however it is spelled, with or without capitals or .exe, and saving a new choice replaces the app's older rule under another spelling. On the Activity rows the device tag, the category and the time now have fixed widths, so they line up down the list."
+    },
     {
       "item": "Striped rows in the lists",
       "detail": "Every second row is now a little lighter, so long lists are easier to follow: Tasks, Commitments (the timeline, templates, rules and breaks), Activity, What Now (Watch Later and the Productive list), and the Back End's call list and database tables. Each group starts again with the normal color. A row with its own color, such as a selected or done task or the row under the mouse, keeps it. PC only."
