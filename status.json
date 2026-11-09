@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-09.6"
+    "docVersion": "2026-11-10.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The shopping cart, redesigned on the PC",
+      "detail": "The To buy tab is now a dark receipt: items and types in one list, the company in bold on every line, the price of each line and a total at the end. Ticked items move to the bottom under 'in the basket'. A type is a normal row that says 'choose'; pressing it opens its products in a drop-down that floats over the list. The saved lists sit in a narrow column beside it. '+ Item' became '+ Add': a centred ticket with every item the tab and the filters allow, already-on-the-list ones marked with how many; a press adds one and it stays open. A new item always opens the full editor, with Groceries filled in on the Groceries tab, or the filter when exactly one is on. The item editor, 'Add a list to the cart' and the type picker became tickets too. Groceries and All stay a table, now with striped rows."
+    },
     {
       "item": "A PC app's category sticks, and the Activity columns line up",
       "detail": "Changing the category of some PC apps on Activity seemed to do nothing: the choice was saved under the program's name in small letters, and the app is reported with capital letters, so the rule was never found. A rule now matches its app however it is spelled, with or without capitals or .exe, and saving a new choice replaces the app's older rule under another spelling. On the Activity rows the device tag, the category and the time now have fixed widths, so they line up down the list."
