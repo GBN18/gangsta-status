@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-10.4"
+    "docVersion": "2026-11-10.5"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -231,7 +231,7 @@
   "latestUpdates": [
     {
       "item": "One spelling per category and company; left-to-right cart; Library pictures reach the phone",
-      "detail": "A category or company typed with other capitals or spaces now takes the spelling the cart already uses, so 'groceries' joins 'Groceries' instead of becoming a second chip. The shopping cart shows every name left to right, Hebrew too, on the PC and the phone, so its columns line up. And a routine step picture changed on the PC now reaches the phone: the PC never wrote down the phone changes it had applied, so the satellite kept serving its own frozen copy of the Library. It writes them down now, and the satellite also stands down once the PC has taken every change and sent a newer file. The satellite only stands down when the PC's file is clearly newer, at least a few seconds after the last phone change, so a change it is still holding is never dropped."
+      "detail": "A category or company typed with other capitals or spaces now takes the spelling the cart already uses, so 'groceries' joins 'Groceries' instead of becoming a second chip. The shopping cart shows every name left to right, Hebrew too, on the PC and the phone, so its columns line up. And a routine step picture changed on the PC now reaches the phone: the PC never wrote down the phone changes it had applied, so the satellite kept serving its own frozen copy of the Library. It writes them down now, and the satellite also stands down once the PC has taken every change and sent a newer file. The satellite stands down once no phone change is still waiting, the last one is at least ten seconds old, and the PC's file arrived after it; and the PC now sends the Library right after taking phone changes, before it confirms them."
     },
     {
       "item": "The shopping cart, redesigned on the phone",
