@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-10.2"
+    "docVersion": "2026-11-10.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "One spelling per category and company; left-to-right cart; Library pictures reach the phone",
+      "detail": "A category or company typed with other capitals or spaces now takes the spelling the cart already uses, so 'groceries' joins 'Groceries' instead of becoming a second chip. The shopping cart shows every name left to right, Hebrew too, on the PC and the phone, so its columns line up. And a routine step picture changed on the PC now reaches the phone: the PC never wrote down the phone changes it had applied, so the satellite kept serving its own frozen copy of the Library. It writes them down now, and the satellite also stands down once the PC has taken every change and sent a newer file."
+    },
     {
       "item": "The shopping cart, redesigned on the phone",
       "detail": "The phone's To buy is the same dark receipt as the PC, with torn edges: the company in bold under each name, line prices, a total, and ticked items at the bottom under 'in the basket'. A type is a normal row; a tap opens its products in a drop-down. '+ Add' opens a centred ticket listing what the tab and the filters allow, adds one per tap and stays open; 'Create' opens the full editor with the same category rules as the PC, and 'New type' makes a type at the shelf. The editor is a ticket with company, categories and type picked from the existing ones. Groceries and All have striped rows."
