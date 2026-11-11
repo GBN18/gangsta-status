@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-10.6"
+    "docVersion": "2026-11-11.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Pages stay loaded after the PC sleeps",
+      "detail": "After a night of sleep every page in the desktop app stayed empty, while the local backend answered every call in milliseconds. The cause was Chromium's network helper process: alive, idle, and never returning an answer to the app. The desktop app now checks every 30 seconds, and soon after each wake-up, by asking the backend both through Chromium and through Node's own fetch. When Node gets an answer and Chromium does not, twice in a row, it restarts the network helper and reloads the windows. It never acts when the backend itself is down, and never twice within a minute."
+    },
     {
       "item": "The shopping cart fits a small window",
       "detail": "In a narrow window the saved lists squeezed the To buy receipt until the item names had no room at all and the prices were cut off. The saved lists now move under the receipt when there is not room for both, and on a narrow receipt (or + Add ticket) the company sits under the name instead of in its own column. Checked in a browser at 1150, 900 and 800 pixels wide."
