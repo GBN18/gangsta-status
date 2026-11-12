@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.17"
+    "docVersion": "2026-11-12.18"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A night-only flag: free all day, held by the night curfew",
+      "detail": "The owner can now flag an app or site as 'night': it is free during the day, and only the night curfew blocks it. The daytime watcher may never block it or warn about it, which is what sets it apart from 'unfocused' (deliberate leisure, where a real daytime binge can still be blocked). It can be set from the chat, like the other flags. The targets the watcher had once flagged on its own, mostly late at night, were made night-only at the owner's request."
+    },
     {
       "item": "The chat runs on gpt-6.1-sol",
       "detail": "The model that answers chats (and every surface that uses the main model) is now gpt-6.1-sol instead of gpt-6-sol, by the owner's choice. Input and output prices are the same; reading from the cache costs half; writing to the cache is billed a little above plain input, which the cost page cannot see on its own, so a turn that misses the cache is booked slightly low. Cheap background work stays on gpt-6-luna. Its model page lists only 'low' and up for reasoning effort, so any call that falls back to it asks for 'low', never 'none'."
