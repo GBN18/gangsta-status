@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.4"
+    "docVersion": "2026-11-12.5"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Every chat feeds memory, and memory saves stop losing updates",
+      "detail": "Memory was only learned on the desktop chat page, so phone chats, coach chats and thought chats never fed memory while the prompt said memory saves itself. The backend now learns from every finished turn, including phone turns when the desktop folds them in (once per answer). Only exact copies count as duplicates now, so an update is no longer refused as 'already remembered'. A new entry is reconciled against related entries of every memory type, so an outdated copy filed elsewhere is replaced too; a save that removes something always adds the new entry, and every removed entry is kept in a local log. correct_memory changes one entry unless told otherwise and says when a memory type does not exist. Assistant rules are taken only from what the owner said himself. The chat's Save to Memory button files into a chosen memory type instead of a file the chat never read, feed answers go through the same save, memory writes are serialized, tags are built from the newest entries, a tag fetch returns every type that has it, an empty weekly rollup is no longer saved, the alarm reads his profile and goals first, and the memory switch also turns off the memory tools, the Brain and the feed."
+    },
     {
       "item": "The always-on process follows his own settings, kill switch first",
       "detail": "His settings file never leaves the desktop because it holds his keys, so the always-on process answered every phone chat on built-in defaults: it kept the warden on even when he had switched it off on the desktop, and it used default reply style, web search and model choices. The desktop now writes a separate copy of only the safe fields (the warden switch and curfew hours, reply style, web search, model choices, memory switches) whenever settings are saved and at startup, and it syncs like any other file. The always-on process lays it over its defaults on every read; with no copy yet it keeps the old default."
