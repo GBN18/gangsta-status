@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.15"
+    "docVersion": "2026-11-12.16"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "A reply can show several task and quest cards",
+      "detail": "'Add these three tasks' used to draw one card: a reply kept only its last task card and its last quest card, while Gangsta said three. A reply now shows up to five of each. The first sits on the reply as before, and each other card is its own small message right under it, so Add and Dismiss work on every card on the desktop and the phone exactly as they did for one. The model reads them back as one reply that showed several cards, and a second call for the same title fixes that card instead of adding a copy. Replies answered in the cloud bring their extra cards to the desktop too."
+    },
     {
       "item": "Coach and thought chats can see which memories they can fetch",
       "detail": "Both prompts offer the memory tool and told the model to look at a list of the memory types it could load, but only the main chat had that list, so a coach could fetch memory only by guessing a type name. The list is now in every prompt that offers the tool, when memory is switched on."
