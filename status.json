@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.11"
+    "docVersion": "2026-11-12.12"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Each step of a chat turn keeps the model's own reasoning",
+      "detail": "Within one turn, the strong rounds now hand the model's reasoning from the previous round back to it, as OpenAI recommends for tool calls; before, every round reasoned from scratch, which costs more and loses the thread of a multi-step decision. With store:false the reasoning comes back encrypted, so nothing is kept on OpenAI's side for it. Cheap reading rounds never receive it. If the API ever refuses the replayed items, that round is sent again the old way and the replay stays off for the rest of the run."
+    },
     {
       "item": "Prompts: one voice, one order of priority, and history that remembers what happened",
       "detail": "Every reply style used to end with 'short, funny, a bit sarcastic', placed right before his message where it outweighed the persona's own 'most replies have no joke'; tone now comes from the persona and the delivery rules only. 'Too detailed' no longer switches on long answers, and 'elaborate', 'in depth' and Hebrew asks do. The prompt now says which section wins when they disagree (honesty first). The model is told whether he writes from the phone or the desktop, and the desktop-only Freedom card is only described on the desktop. A past reply in the history now carries what it did (a grant, a card and whether it was accepted) and its mood tag, so the next turn knows and long chats keep their mood. Standing-rule notes in tool results are plain facts instead of capital-letter orders, so warden replies stop sounding like one template. The banter rule keeps the jokes, but now checks in once, as a friend, when something might be real."
