@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.6"
+    "docVersion": "2026-11-12.7"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Persona files can be rewritten through one guarded action",
+      "detail": "A single action now rewrites the persona files (personality, about-me, active state) or the old legacy memory file, and refuses every other path, and an empty personality. It exists for cleanups and a future editor: the persona files had no way to be corrected except by hand."
+    },
     {
       "item": "Saved memories are found by meaning and ride along by themselves",
       "detail": "The chat only reached memories outside the always-loaded core when the model chose to fetch them, and it chose to in none of the sixteen recorded turns. Every saved entry now has a short meaning vector (text-embedding-3-small, 256 numbers, kept beside the memory and synced, so the always-on process can search too). Each message is compared with them, and up to six clearly related entries (core types left out, about 1,600 characters at most) are added to that turn's tail; coach and thought chats get them as well, so a coach knows what he already told the main chat. Reconcile ranks related entries by meaning too. The vectors refresh a few seconds after any memory change; one message costs a tiny fraction of a cent. Entries can now be edited, moved to another type, or deleted one at a time, and removals are kept in the local log."
