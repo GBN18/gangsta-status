@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.13"
+    "docVersion": "2026-11-12.14"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Pages keep loading while Gangsta answers a chat",
+      "detail": "Every desktop call to the backend used to wait behind a chat turn, so the skill tree, the calendar or the cart sat on 'loading' for as long as the model took to answer, often 10 to 60 seconds. A turn now lets other calls through only while it waits on the model, and takes the lock back before it reads the answer or runs a tool, so the app's data is still changed one call at a time. Two turns in the same chat (the chat page and the companion's ask box, or a parked phone message) now wait for each other instead of answering side by side, and the one that waits lets go of the lock while it waits, so neither can freeze the other."
+    },
     {
       "item": "A message typed on the phone is answered once, in order, and never lost",
       "detail": "The phone chat now keeps one queue per conversation, so two quick messages are answered in the order they were sent, and a turn never reads a line sent after it. A retry with the same client id gets the first receipt back instead of starting a second paid turn, and a new chat is made once per request and once per skill. The public chat endpoint has limits: 16,000 characters a message, 12 messages a minute, 4 waiting per chat, 20 new chats an hour, and a daily spending ceiling of 3 dollars read from the always-on process's own cost ledger; each is refused with a plain sentence. A redeploy no longer leaves a message with no answer: running turns get time to finish, and anything still cut off gets a short 'I lost that one, say it again' on the next start. A message waiting for the desktop is claimed while it is answered, not taken out of the queue, so a restart in the middle cannot lose it. Output numbers are saved and only go up, so a late acknowledgement can no longer delete a newer output. Failure notices stay in the thread but are no longer fed back to the model. Coach chats answered in the cloud now hand their note and activity changes to the desktop exactly once instead of losing them on its next push, and facts only the laptop has (work hours, its own app time) say they are not available from the phone instead of 'not configured'. On the desktop, a message parked for it is answered in the background, once. Messages are merged by the time they were said, and the phone reloads a thread in full when the count says it missed one. On the phone, a message the server refuses for good no longer blocks the ones after it: it is marked not sent, with the reason. Coach chats no longer open as the default chat."
