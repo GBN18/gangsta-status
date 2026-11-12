@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.16"
+    "docVersion": "2026-11-12.17"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The chat runs on gpt-6.1-sol",
+      "detail": "The model that answers chats (and every surface that uses the main model) is now gpt-6.1-sol instead of gpt-6-sol, by the owner's choice. Input and output prices are the same; reading from the cache costs half; writing to the cache is billed a little above plain input, which the cost page cannot see on its own, so a turn that misses the cache is booked slightly low. Cheap background work stays on gpt-6-luna. Its model page lists only 'low' and up for reasoning effort, so any call that falls back to it asks for 'low', never 'none'."
+    },
     {
       "item": "A reply can show several task and quest cards",
       "detail": "'Add these three tasks' used to draw one card: a reply kept only its last task card and its last quest card, while Gangsta said three. A reply now shows up to five of each. The first sits on the reply as before, and each other card is its own small message right under it, so Add and Dismiss work on every card on the desktop and the phone exactly as they did for one. The model reads them back as one reply that showed several cards, and a second call for the same title fixes that card instead of adding a copy. Replies answered in the cloud bring their extra cards to the desktop too."
