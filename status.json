@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.8"
+    "docVersion": "2026-11-12.9"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The chat's tools tell him what is really there",
+      "detail": "get_tasks now lists his open tasks, deadlines still ahead (soonest first) and what was done in the last week; it used to show only in-progress and MIT tasks plus five deadlines that could all be finished, so with 45 open tasks it showed 3. get_calendar shows the day's time blocks (work, sleep), so a working day no longer reads as empty and nothing gets booked inside a shift. Scheduling by title skips finished tasks and asks when two open tasks share a name. The three databases that moved out of the old notes service (productive list, commitments, recipes) are no longer offered to the chat while Gangsta's own store holds them, a new read-only get_recipes reads the recipe book, a text search there reads up to 500 rows instead of the first 25, and its answer is trimmed by whole rows instead of being cut mid-way. The recommender no longer treats rows from every connected database as things to do. A block rule cannot wait for a habit he does not have (the spelling is matched to his), and bad times or days are refused. get_day takes weekday names and says when a date is wrong; get_work_hours refuses a bad month instead of silently using this one. A retried turn no longer repeats a write whose arguments came back in another order, and every kind of refusal now shows as failed under the reply."
+    },
     {
       "item": "Memory entries can be edited, moved and deleted on the Memory page",
       "detail": "The Memory page could only add memories, so a wrong or outdated one could only be fixed by asking in chat. Each entry now has Edit, Move to another type, and Delete (with a confirm), and removals are kept in the local log. The page no longer calls memory append-only, and the empty legacy tab is hidden."
