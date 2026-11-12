@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.1"
+    "docVersion": "2026-11-12.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Every decision in a chat is made by the strong model; OpenAI keeps nothing",
+      "detail": "A chat turn's cheap reading rounds used to keep every tool, so the cheap model, whose prompt had none of the warden rules, memory or persona, made the access decisions: all six grant or refuse calls in the trace were made there. Now rounds 1 and 2 always run on the strong model with the full rules and every tool. Cheap rounds may only start after that, may only read, and hand the turn back to the strong model, which makes any change and writes the reply. The last answer round keeps the same tool list with tool_choice none, so it reads from the cache instead of starting a new prefix. /task and /quest force their tool with tool_choice instead of words. The warden's forced round now needs the message to name something that is blocked (or the turn to have looked at the blocks), keeps the tool list, and replaces the first reply only when it really decided. Every request sends store:false, so OpenAI no longer keeps a 30-day copy of every reply."
+    },
     {
       "item": "The freeze check no longer waits behind page calls",
       "detail": "The check that restarts Chromium's frozen network helper now asks the backend by 'localhost' instead of 127.0.0.1. The window keeps at most six connections per address and the backend answers one call at a time, so during a long chat turn the pages' own calls could fill all six and make the check think the network froze. The pages' change poll also waits for its answer before asking again, instead of stacking a new call every four seconds."
