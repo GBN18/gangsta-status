@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.3"
+    "docVersion": "2026-11-12.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "The always-on process follows his own settings, kill switch first",
+      "detail": "His settings file never leaves the desktop because it holds his keys, so the always-on process answered every phone chat on built-in defaults: it kept the warden on even when he had switched it off on the desktop, and it used default reply style, web search and model choices. The desktop now writes a separate copy of only the safe fields (the warden switch and curfew hours, reply style, web search, model choices, memory switches) whenever settings are saved and at startup, and it syncs like any other file. The always-on process lays it over its defaults on every read; with no copy yet it keeps the old default."
+    },
     {
       "item": "Blocks tell the truth, come back on time, and only hold what he flagged",
       "detail": "A timed phone pass ('unblock it for 10 minutes') now really comes back: before, it deleted a normal block for good while the tool said it would re-arm. Re-arms of warden grants and phone passes are now kept in a file, so a restart inside the window no longer loses them, and the Settings kill switch empties that file, so nothing comes back after the warden is switched off. delete_block_rule now fails for an id that does not exist instead of saying 'Rule deleted', says what the rule held, and logs it. On the satellite, a timed pass is timed, 'for good' and 'remove' are done by the PC on its next sync, and every queued warden decision carries an op id so it runs once. Refusals from the calendar and memory tools start with 'error', so the satellite no longer reports them as done. The watcher, the night curfew and the app-hop counter now hold only what the owner flagged himself (his Activity categories, or what he told Gangsta in chat); the warden's own verdicts become suggestions in its ledger and can never overwrite his. Every phone block records who set it, the warden lets go only of its own, and the status tool says who holds each block instead of calling them all the warden's. 'remove' is used only when he asks for a block to end."
