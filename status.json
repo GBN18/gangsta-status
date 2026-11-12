@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.19"
+    "docVersion": "2026-11-13.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Nine blocking tools instead of twelve",
+      "detail": "The chat was offered twelve tools about blocking that overlapped, and the model sometimes reached for the wrong one. It now gets nine. One read shows everything that is blocked and who holds it, replacing three separate reads. A standing rule opens through the same 'grant' as every other block instead of through a tool of its own, and that one way in is offered whether the watcher is on or off. Nothing changed in how blocks are set, opened or re-armed, and the old tools still work for anything an older build queued."
+    },
     {
       "item": "Gangsta can fill the cart and set an alarm from chat",
       "detail": "Two things the owner can now ask for in chat. 'Add oats and two milks to the cart': an item already in the list goes into the cart, a type becomes a pick-one line, anything else is added as a new item, through the same cart operations the desktop and the phone use; answered in the cloud, the change is made there at once and handed to the desktop exactly once. 'Wake me at 6:40 Sunday to Thursday': alarms live on the phone, so the chat leaves a request the phone applies once, within half a minute while the app is open and otherwise with the alarm's own pull, and Gangsta says it is on its way rather than set. A request the phone never collects expires after three days, and one already applied is never applied again, so a change made by hand on the phone stays."
