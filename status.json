@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.14"
+    "docVersion": "2026-11-12.15"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Coach and thought chats can see which memories they can fetch",
+      "detail": "Both prompts offer the memory tool and told the model to look at a list of the memory types it could load, but only the main chat had that list, so a coach could fetch memory only by guessing a type name. The list is now in every prompt that offers the tool, when memory is switched on."
+    },
     {
       "item": "Pages keep loading while Gangsta answers a chat",
       "detail": "Every desktop call to the backend used to wait behind a chat turn, so the skill tree, the calendar or the cart sat on 'loading' for as long as the model took to answer, often 10 to 60 seconds. A turn now lets other calls through only while it waits on the model, and takes the lock back before it reads the answer or runs a tool, so the app's data is still changed one call at a time. Two turns in the same chat (the chat page and the companion's ask box, or a parked phone message) now wait for each other instead of answering side by side, and the one that waits lets go of the lock while it waits, so neither can freeze the other."
