@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-13.1"
+    "docVersion": "2026-11-13.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Tool calls use strict schemas",
+      "detail": "Every function tool is now sent in OpenAI's strict mode, so the model's arguments always have the right field names and types and nothing invented. The schemas are converted as they are sent rather than rewritten by hand: every field is listed, and a field that was optional accepts null, which every handler reads as left out. A schema that cannot be converted is sent as it was, and if the API ever refuses the strict list, that round is sent again without it and strict stays off until the next start."
+    },
     {
       "item": "Nine blocking tools instead of twelve",
       "detail": "The chat was offered twelve tools about blocking that overlapped, and the model sometimes reached for the wrong one. It now gets nine. One read shows everything that is blocked and who holds it, replacing three separate reads. A standing rule opens through the same 'grant' as every other block instead of through a tool of its own, and that one way in is offered whether the watcher is on or off. Nothing changed in how blocks are set, opened or re-armed, and the old tools still work for anything an older build queued."
