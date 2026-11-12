@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-12.18"
+    "docVersion": "2026-11-12.19"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Gangsta can fill the cart and set an alarm from chat",
+      "detail": "Two things the owner can now ask for in chat. 'Add oats and two milks to the cart': an item already in the list goes into the cart, a type becomes a pick-one line, anything else is added as a new item, through the same cart operations the desktop and the phone use; answered in the cloud, the change is made there at once and handed to the desktop exactly once. 'Wake me at 6:40 Sunday to Thursday': alarms live on the phone, so the chat leaves a request the phone applies once, within half a minute while the app is open and otherwise with the alarm's own pull, and Gangsta says it is on its way rather than set. A request the phone never collects expires after three days, and one already applied is never applied again, so a change made by hand on the phone stays."
+    },
     {
       "item": "A night-only flag: free all day, held by the night curfew",
       "detail": "The owner can now flag an app or site as 'night': it is free during the day, and only the night curfew blocks it. The daytime watcher may never block it or warn about it, which is what sets it apart from 'unfocused' (deliberate leisure, where a real daytime binge can still be blocked). It can be set from the chat, like the other flags. The targets the watcher had once flagged on its own, mostly late at night, were made night-only at the owner's request."
