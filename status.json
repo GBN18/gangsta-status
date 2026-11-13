@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-14.1"
+    "docVersion": "2026-11-14.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Watch: Seen section and full screen",
+      "detail": "A seen chip on the Watch page shows, at the bottom, every video settled with seen it or not for me, in two groups, filtered like the rest of the page and hidden by default. Each can be played, put back, or switched to the other kind. Marks now keep the title and picture. The player's full-screen button works again."
+    },
     {
       "item": "All pages menu",
       "detail": "A gold All pages row at the top of the side menu (and Ctrl+K) opens one menu of every page and tab, with a search that also finds skills that are not hidden. Picking a tab opens the page at that tab; picking a skill opens the Skill Tree with it open. Summon Gangsta is gold now."
