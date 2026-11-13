@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-13.2"
+    "docVersion": "2026-11-13.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Why, what and how are written over time, and quests wait for them",
+      "detail": "The first step of every skill's path asks why the owner wants the skill, what it is made of and how to get there. Those answers used to be typed only into the form that finished the step, all at once. They now live in the skill's notes as three boxes that save as the owner types (on the phone, when a box is left), so they can be built up over days; pressing Done on the step closes it once all three have something in them, and opens the notes when they do not. Gangsta's quest suggestions stay hidden and cost nothing until this step is done, so the quests fit the answers; the coach and the suggestions read the answers, finished or not."
+    },
     {
       "item": "Tool calls use strict schemas",
       "detail": "Every function tool is now sent in OpenAI's strict mode, so the model's arguments always have the right field names and types and nothing invented. The schemas are converted as they are sent rather than rewritten by hand: every field is listed, and a field that was optional accepts null, which every handler reads as left out. A schema that cannot be converted is sent as it was, and if the API ever refuses the strict list, that round is sent again without it and strict stays off until the next start."
