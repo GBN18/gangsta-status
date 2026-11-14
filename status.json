@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-14.2"
+    "docVersion": "2026-11-14.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Skill Tree: no top bar",
+      "detail": "The bar above the Skill Tree is gone. WP floats in a small panel at the top left, and the tools, theme and Shop in one at the top right, with their names shown on hover. Fit starts the tree just below them, so nothing is covered when it opens."
+    },
     {
       "item": "Watch: Seen section and full screen",
       "detail": "A seen chip on the Watch page shows, at the bottom, every video settled with seen it or not for me, in two groups, filtered like the rest of the page and hidden by default. Each can be played, put back, or switched to the other kind. Marks now keep the title and picture. The player's full-screen button works again."
