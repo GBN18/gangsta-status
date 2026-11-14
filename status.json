@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-14.3"
+    "docVersion": "2026-11-14.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Activity: custom range and arrow keys",
+      "detail": "The Activity page has a Custom chip that opens a month calendar: click the first day, then the last, up to 90 days. The left and right arrow keys, and new buttons beside a label of the dates, move the range by its own length and never past today. A chip is lit only when the range really is that chip."
+    },
     {
       "item": "Skill Tree: no top bar",
       "detail": "The bar above the Skill Tree is gone. WP floats in a small panel at the top left, and the tools, theme and Shop in one at the top right, with their names shown on hover. Fit starts the tree just below them, so nothing is covered when it opens."
