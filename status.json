@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-17.2"
+    "docVersion": "2026-11-17.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone break wall: routine shortcuts",
+      "detail": "During a break, the wall shows every saved routine as a round icon in one row you swipe, like the Library tab. A tap opens Gangsta on that routine; the break keeps running. Works with the PC off (last received list)."
+    },
     {
       "item": "Phone: pick the apps a break leaves open",
       "detail": "The 'always allowed' list for the take-a-break reminder is now a list of your apps, with icons and a search box, where you tick the ones that stay open. No typing app names."
