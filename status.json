@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-15.1"
+    "docVersion": "2026-11-17.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone: 'not now' waits for phone use",
+      "detail": "After 'not now', the take-a-break question waits for minutes of phone use, not clock minutes. Before, it came up the moment you opened the phone after a long time away."
+    },
     {
       "item": "Phone: take-a-break reminder",
       "detail": "When one of your own rules is met (time in distracting, unfocused or neutral apps and sites, or time on the phone), the phone asks you to take a break. Yes closes everything except Gangsta, calls and alarms for the break; ending it early asks 'are you sure?' first. Rules and numbers live on the phone, and the Activity page lists each day's breaks."
