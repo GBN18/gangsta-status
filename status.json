@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-18.1"
+    "docVersion": "2026-11-19.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone: a 10 min break button on the notification",
+      "detail": "Gangsta's always-on phone notification shows a '10 min break' button without pulling it down. One tap starts a 10-minute break at once, with no question (only when breaks are on, and never longer than a break already running). During the break the button is replaced by when it ends. The notification sits in the silent section and makes no sound."
+    },
     {
       "item": "Skill window: a step link, new editors and a right-click menu",
       "detail": "PC skill window: explanations sit behind small i icons; why, what and how are now sections of one note; a step can link to where its work is done (a page of the window, one of the skill's resources, or a web address), shown as a link inside the step's text, and the first research step links to the notes; new editors for a quest (type, goal, repeat, the WP price, and on this step, another step or general), for splitting a step (one row per smaller step, with up and down buttons) and for a new step (type cards and Gangsta's ideas); a right-click menu on the climb (+ Quest, + Step, Done, Can't do it yet, Split); the manual badge override is gone; small labels use a plain font. Phone: the step link shows in the step's text too, and the step you are on has no extra line."
