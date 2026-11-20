@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-20.1"
+    "docVersion": "2026-11-20.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone: log progress, and a break wall that stays",
+      "detail": "The phone can log something already done (tree action progress.log): the quest window without a goal or repeat, paid at once by the WP formula under the tap's own ids, so a resent tap pays once; the phone's tree now carries each skill's latest logs (progress_logs). During a break the wall stays up until its Home, Open Gangsta or routine button is pressed; calls, alarms, Gangsta and Settings still get through and the wall returns after them and after unlocking. The keyboard is no longer read as the app in front, so it cannot bring the wall up."
+    },
     {
       "item": "Skill window: fewer tabs, clearer suggestions, new editors",
       "detail": "From the owner's comments on a live copy of the skill window. Gangsta's step and quest ideas are shown as suggestions (a violet 'Gangsta suggests' label); a dice on one suggested step asks the model for one new idea in its place (one paid call; RerollPathGuess, phone kind path.reroll, applied as path op 'reguess'). The first 'Why, what and how' step is fixed on every skill: it cannot be removed, split or blocked, and an edit keeps its name and type (the backend refuses these too). The Activities and History tabs are gone: 'What counts as progress' opens from the Quests box and History sits at the bottom of Progress. The progress log and 'what I know' share one box on the Path tab; logging progress uses the quest editor. New or remade editors: edit a step, something I know, log progress, edit a suggested quest. Done steps look done; Esc in a window no longer closes the whole skill."
