@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-20.3"
+    "docVersion": "2026-11-20.4"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Tasks table: rows keep their height under the mouse",
+      "detail": "The buttons that appear when the mouse is over a task row (Start, Today, Park, and a quest's Log or Claim) now float over the right side of the row instead of taking room, so a row no longer grows taller when they wrap."
+    },
     {
       "item": "Tasks page: a table, and one task window in the middle",
       "detail": "Picked by the owner from five designs on a live copy. The task list is now a table: one row per task with columns Pri (a dot; click to change), When, Est, Quest and Made, dates as dd-MM, and the first two non-empty lines of the task body (Markdown) on a row under it. Group by Section, Priority, Month or None, and Show Open, Done or Parked; both are remembered. One window in the middle (TaskWindow) both shows and creates a task: the title, one row of controls (status menu, a High/Normal/Low switch, when, the estimate typed as hh:mm, MIT, deadline), the body with Write/Read, the quest bar, and Delete/Park/Done. A new backend call, TaskBodyPreviews, returns the start of every body in one answer so the table does not ask fifty times."
