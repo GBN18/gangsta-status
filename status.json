@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-20.5"
+    "docVersion": "2026-11-22.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Tasks table: sortable heads on the phone, hh:mm times, and one sheet for new tasks",
+      "detail": "The owner's answers, 2026-11-22. On the phone every head of the Home task table sorts (Task, Pri, Est, When, Made): a tap sorts up, a second tap sorts down, a third goes back to the normal order, and the choice is remembered, the same rule as the PC. Est and Made have their own columns, and When shows a time of day under the day. On the PC and the phone the Est column and the group totals read hh:mm. '+ TASK' on the phone now opens the task sheet with two tabs, 'Fill it in' and 'Describe it' (Gangsta drafts the task from a sentence and fills the form for checking); it opens on the tab used last time. The When menu can pick a time of day. The message after adding a task no longer shows a file name ending in .md: tasks are not files any more."
+    },
     {
       "item": "Phone Home: the task table and a task sheet",
       "detail": "Picked by the owner from five versions on a live copy. The phone's Home tasks are the PC table made for a phone: one thin row per task (a ring to finish it; a quest's sword does the quest's own move), the title, a priority dot and the day as dd-MM, with the body's first two lines under it; Group by Section / Priority / Month and Show Open / Done / Parked. Tapping a task opens a sheet like the PC window: status, a priority switch, when, the estimate typed as hh:mm, MIT and deadline, the body with Write / Read, the quest bar, and Delete / Park / Done; each change is written as it is made. Making a task still uses the existing form, which has the describe-it box."
