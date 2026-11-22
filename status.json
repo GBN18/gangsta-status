@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-22.4"
+    "docVersion": "2026-11-23.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Watch: a compact page, videos by skill, and Gangsta suggests a skill",
+      "detail": "Reviewed by the owner on a live copy, 2026-11-22. The Watch header is one row: where the videos come from and which skill are two small menus, then seen, search and three small buttons (refresh, organize, channels). Each video shows the skills or branches it is linked to as tags, and the Skill menu filters by a skill, a whole branch, or not linked, with counts. A tag is the resource in that skill, so removing a tag (two presses) removes the resource. Evaluate and organize now also suggests one skill for each unlinked video, sending the owner's skill and branch names only; he confirms or says no, and a no is remembered. Tile buttons are small icons in one row with the tags; on picture tiles they appear only under the mouse, in a dark pill. The player's buttons are icons, and it shows the video's tags and a link button."
+    },
     {
       "item": "One script runs every check side by side, then builds",
       "detail": "scripts/check_all.py runs the Go tests, the type check, the desktop tests and the phone tests at the same time, each into its own log, and prints one line per check. With --ship it builds only after all of them pass: it packages the desktop app (closing and restarting it by name) and builds the phone app at the same time, installs the phone app when a phone is connected, and reads back the phone's accessibility setting without changing it. It never commits, pushes or publishes. The phone test run was also given more memory, because the suite had grown past the default and two tests were failing for that reason alone."
