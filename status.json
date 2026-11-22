@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-22.2"
+    "docVersion": "2026-11-22.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Resources for a whole branch, Watch videos as resources, and an easier note font",
+      "detail": "The owner's answers, 2026-11-22. A branch can hold resources (links, videos, files, notes): they are added in the branch's window on the PC, or with '+ Branch' in a skill's Learn tab on the phone, and every skill of that branch shows them in their own group, 'From the branch: <name>', with one status shared by the whole branch. A skill's resource can be shared up to its branch, and a branch resource moved down into one skill, on the PC and the phone. Any video in the Watch gallery can be linked to a branch or a skill ('link to...' on the tile or in its menu), and a skill's or branch's Resources has '+ From Watch' to pick one; the video becomes an ordinary resource that plays inside Gangsta, whichever source it came from, and it stays in the Watch gallery. The phone's share screen can send a link to a whole branch. Note text in Resources is now set in a plain, larger font. The Crew board hides branch resources whenever it hides the Resources tab."
+    },
     {
       "item": "The WP shop is an arcade screen",
       "detail": "Picked by the owner from five retro versions on a live copy, 2026-11-22 (version 2, the arcade). The Shop button on the Skill Tree opens an arcade screen: Gangsta is the shopkeeper, drawn in neon lines with his own retro face in the companion's colour of the moment. He talks in fixed lines (no AI, so it costs nothing), blinks and breathes, smiles and jumps when something is bought, and shakes his head when there is not enough WP. Tabs: Rewards, Time and Receipts; each item has a pixel icon, coins burst out of what is bought, and the arrow keys and Enter work. 8-bit sounds are off until turned on, and the choice is remembered. Unlocks and Grant WP were taken out of the shop at the owner's ask; a skill's own window still unlocks it. Prices still come only from the backend. The phone shop is unchanged for now."
