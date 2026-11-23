@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-23.2"
+    "docVersion": "2026-11-23.3"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Learn tab: a gallery, with Gangsta's suggestions at the bottom",
+      "detail": "The owner's pick of five designs, 2026-11-23, on the PC and the phone. A skill's Learn tab is now a gallery of cards with book-tab filters (All, Videos, Channels, Links, Notes, Files, Suggested). The skill's own cards come first, then the branch's under 'From the branch', then Gangsta's suggestions, always last, with a dashed violet edge and yes / no. Pressing a card's status label moves it on; the other actions are behind a small menu button or a right-click (a long press on the phone). Notes open in a centred window, channels and pages are told apart from videos by their address and drawn as round faces, and the add buttons stay at the bottom. Suggestions are now kept inside the skill or branch: Find resources stores what it found (and works for a whole branch), and the Watch judge's skill matches are copied in, so the phone sees them too. A no is remembered and is not suggested again; a no to a saved video is also its no on the Watch page. New phone taps: resource.accept and resource.dismiss."
+    },
     {
       "item": "Skill tree: the border is the badge, nothing greyed out, shadows kept while moving",
       "detail": "The owner's answers, 2026-11-23, on the PC and the phone. A skill's border is now its badge and only its badge: bronze, silver, gold, or the plain dark edge when it has none (it used to turn gold for any started or focus skill). No skill is greyed out any more, locked ones included: icons and names are in full colour, and a lock shows only as a small padlock in the tile's corner. The fade of everything outside a selected skill's chain stays. On the PC the panel and plaque shadows no longer disappear while panning or zooming; measured first with the processor slowed four times, the frame time was the same with and without them (about 8.5 ms)."
