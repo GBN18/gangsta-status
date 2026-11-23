@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-23.1"
+    "docVersion": "2026-11-23.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Skill tree: the border is the badge, nothing greyed out, shadows kept while moving",
+      "detail": "The owner's answers, 2026-11-23, on the PC and the phone. A skill's border is now its badge and only its badge: bronze, silver, gold, or the plain dark edge when it has none (it used to turn gold for any started or focus skill). No skill is greyed out any more, locked ones included: icons and names are in full colour, and a lock shows only as a small padlock in the tile's corner. The fade of everything outside a selected skill's chain stays. On the PC the panel and plaque shadows no longer disappear while panning or zooming; measured first with the processor slowed four times, the frame time was the same with and without them (about 8.5 ms)."
+    },
     {
       "item": "Watch: a compact page, videos by skill, and Gangsta suggests a skill",
       "detail": "Reviewed by the owner on a live copy, 2026-11-22. The Watch header is one row: where the videos come from and which skill are two small menus, then seen, search and three small buttons (refresh, organize, channels). Each video shows the skills or branches it is linked to as tags, and the Skill menu filters by a skill, a whole branch, or not linked, with counts. A tag is the resource in that skill, so removing a tag (two presses) removes the resource. Evaluate and organize now also suggests one skill for each unlinked video, sending the owner's skill and branch names only; he confirms or says no, and a no is remembered. Tile buttons are small icons in one row with the tags; on picture tiles they appear only under the mouse, in a dark pill. The player's buttons are icons, and it shows the video's tags and a link button."
