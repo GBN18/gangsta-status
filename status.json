@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-23.4"
+    "docVersion": "2026-11-25.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone: skill notes look like the PC, and notes and the journal save by themselves",
+      "detail": "The owner's pick, 2026-11-25. On the phone, a skill's Notes tab now matches the PC: two small tabs, My notes and Gangsta's note, and on My notes one lined box with the gold, underlined titles Why do I need this skill?, What do I need to know? and How will I get there?, then My note. Every one of these boxes, and the journal, saves by itself: 1.5 seconds after typing stops, every 4 seconds while typing goes on, and at once when the box, the sheet, the tab or the app is left. The journal has no Save button any more and no longer asks about unsaved changes when the day changes. A save never redraws the screen under the typing, and only the newest text of a box waits when there is no signal."
+    },
     {
       "item": "Commitments on the Crew board, each one shared or private",
       "detail": "The owner's pick, 2026-11-23. The Crew board has a third button next to Board and Skill tree: Commitments. It shows the same timeline page as Gangsta, for the man whose tab is open. Y has commitments, rules, fines and templates of his own there, kept apart from the owner's like his skill tree. The owner's own are read-only on the board, even for him: he changes them in Gangsta or on his phone. Every commitment and rule now has a 'Shared with Y' switch (PC window and phone sheet), and Y has the same 'Shared with GBN' switch. The other man sees only what is shared, and all of it (note, answer, reason, fine, paid), plus the breaks of a shared rule. He never sees private ones, or that they exist, and never the templates; the satellite filters this, not the page. Every commitment and rule made before today is private; a new one starts shared and can be made private with one tap. A small 'Shared' mark shows which ones the partner sees."
