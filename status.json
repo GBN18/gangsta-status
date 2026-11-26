@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-25.2"
+    "docVersion": "2026-11-26.1"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone fixes: edit an item from the cart's + Add list, and Remove on the Plan page",
+      "detail": "The owner's report, 2026-11-26. Cart: in the + Add list every press on an item only added one more to TO BUY, so an item could not be changed from there. Now the item's name or price opens its editor; the +1 still adds, and the list shows the change at once. Plan: something placed on the day (a time block, an activity or a task) could only be taken back by the UNDO chip in the first few seconds. Tapping it now opens its sheet with a Remove button. It goes at once with no question and no UNDO (his choice: add it again from the list if wanted). A time block or activity is deleted from the day; a task keeps its date and loses its time, so it goes back to the list of things that could go in."
+    },
     {
       "item": "Recurring tasks: a History calendar to mark past days done",
       "detail": "The owner's pick (design 4), 2026-11-25. A recurring task's window on the PC and its sheet on the phone now have a History part: one month at a time, the week starting on Sunday, with arrows back to the month the task was made. Done days are green; a day the task was planned for but not done has a dashed orange border. Above it: how many times this month, and the plan from the repeat rule. Clicking today or a past day marks it done; clicking a green day takes it back. For a task counted from when it is done, the next date is always the newest done day plus one step, so marking yesterday moves it; taking back the newest day counts from the one before. A task on fixed days only records a past day, unless that day covers the date it was waiting for. Quests are not included; they are logged on their own page. The PC (Go) and the phone (Java) use the same rule and are checked against the same test cases."
