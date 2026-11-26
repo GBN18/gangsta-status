@@ -10,7 +10,7 @@
     ],
     "maintainedBy": "The coding assistant that works on the repository, in the same commit as the change it describes. Nothing on this board is generated from the owner's data, his notes or the commit history — it is written by hand so that it cannot leak anything personal.",
     "containsNoPersonalData": true,
-    "docVersion": "2026-11-26.1"
+    "docVersion": "2026-11-26.2"
   },
   "overview": {
     "whatItIs": "A single-user productivity and self-discipline companion. One person's own desktop app, their own phone, and a small always-on cloud process that stands in for the desktop while it is asleep.",
@@ -229,6 +229,10 @@
     ]
   },
   "latestUpdates": [
+    {
+      "item": "Phone cart: the item editor opened empty; fixed",
+      "detail": "The owner's screenshot, 2026-11-26. The phone's cart item editor showed only its title, the on-the-list count and SAVE: no name, no fields, no Delete. The row holding the count had an empty spacer that took the whole height of the window, which left the fields 0 pixels high. The spacer has no height now and every field shows again. A new test measures the fields' height, so this cannot come back unseen."
+    },
     {
       "item": "Phone fixes: edit an item from the cart's + Add list, and Remove on the Plan page",
       "detail": "The owner's report, 2026-11-26. Cart: in the + Add list every press on an item only added one more to TO BUY, so an item could not be changed from there. Now the item's name or price opens its editor; the +1 still adds, and the list shows the change at once. Plan: something placed on the day (a time block, an activity or a task) could only be taken back by the UNDO chip in the first few seconds. Tapping it now opens its sheet with a Remove button. It goes at once with no question and no UNDO (his choice: add it again from the list if wanted). A time block or activity is deleted from the day; a task keeps its date and loses its time, so it goes back to the list of things that could go in."
